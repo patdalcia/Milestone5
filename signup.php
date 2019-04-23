@@ -40,7 +40,7 @@ for each userName and resets this number after a succesful login -->
 	$userId = $db->insert_id or die("Encountered a problem connecting to databse(query ID)");
 	
 	//mySQL query to add new user password to database table called 'users_passwords'
-	$query2 = "INSERT INTO users_passwords (user_id, password) VALUES (?, ?)";
+	$query2 = "INSERT INTO users_passwords (id, password) VALUES (?, ?)";
 	$stmt2 = $db->prepare($query2);
 	$stmt2->bind_param('is', $userId, $password);
 	$stmt2->execute() or die("Encountered a problem connecting to database(query INSERT 2)");; 
