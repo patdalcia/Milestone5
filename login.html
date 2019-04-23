@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+
+<!--Created by Patrick Garcia for CST-126
+This program allows the user to register with a new account, or log into an existing one.
+The program stores all user info in mySQL databse, and even keeps track of the number of failed login attempts
+for each userName and resets this number after a succesful login -->
+
+
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Login page</title>
+</head>
+<body>
+<h1>Login</h1>
+
+<!--Creating my login form -->
+ <form action="loginHandler.php" method="post"> 
+ <table style="border: 0px;"> 
+ <tr style="background: #cccccc;"> 
+ 	<td style="width: 150px; text-align: center;">Create Account</td> 
+ 	 
+ </tr> 
+ <tr> 
+ 	<td>Username</td> 
+	 <td><input type="text" name="username" size="10" maxlength="30" /></td> 
+ </tr> 
+
+ <tr>
+	<td>Password</td>
+	<td><input type="password" name="password" size="10" maxlength="30" /></td> 	
+ </tr>
+ <tr> 
+	 <td colspan="2" style="text-align: center;"><input type="submit" value="Login to Account" /></td> 
+ </tr> 
+ </table> 
+ </form>
+   
+   <footer><a href="index.html">Return to Main page</a></footer>
+		
+</body>
+</html>
