@@ -17,7 +17,7 @@ function dbConnect() {
     $db -> init();
     
     
-    $db-> ssl_set(null, null, 'BaltimoreCyberTrustRoot.crt.pem', null, null);
+    $db-> ssl_set(null, null, 'ssl/BaltimoreCyberTrustRoot.crt.pem', null, null);
     $db->real_connect(SERVERNAME,USERNAME,PASSWORD,DBNAME,3306,MYSQLI_CLIENT_SSL);
     
     if ($db->connect_error)
