@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<!--Created by Patrick Garcia for CST-126
+This program allows the user to register with a new account, or log into an existing one.
+The program stores all user info in mySQL databse, and even keeps track of the number of failed login attempts
+for each userName and resets this number after a succesful login -->
+
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>New User page</title>
+</head>
+<body>
+
+<!-- Creating my register form -->
+ <form action="signup.php" method="post"> 
+ <table style="border: 0px;"> 
+ <tr style="background: #cccccc;"> 
+ 	<td style="width: 150px; text-align: center;">Create Account</td> 
+ 	 
+ </tr> 
+ <tr> 
+ 	<td>First Name</td> 
+	 <td><input type="text" name="nameFirst" size="10" maxlength="30" /></td> 
+ </tr> 
+ <tr> 
+	 <td>Last Name</td> 
+	 <td><input type="text" name="nameLast" size="10" maxlength="30" /></td> 
+ </tr> 
+ <tr> 
+	 <td>Email Address</td> 
+	 <td><input type="text" name="email" size="10" maxlength="50" /></td> 
+ </tr> 
+ <tr>
+ 	<td>Username</td>
+ 	<td><input type="text" name="username" size ='10' maxlength='50' /></td>
+ </tr>
+ <tr>
+	<td>Password</td>
+	<td><input type="password" name="password" size="10" maxlength="30" /></td> 	
+ </tr>
+ <tr> 
+	 <td colspan="2" style="text-align: center;"><input type="submit" value="Create Account" /></td> 
+ </tr> 
+ </table> 
+ </form>
+   
+</body>
+</html>
