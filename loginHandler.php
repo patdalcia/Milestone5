@@ -20,6 +20,7 @@ for each userName and resets this number after a succesful login -->
 	$username=trim($_POST['username']);
 	$password=trim($_POST['password']);
 	$id = 0;
+	$id2 = -1;
 	
 	//making sure that theres input for both username and password fields
 	if (!$password || !$username)
@@ -37,8 +38,15 @@ for each userName and resets this number after a succesful login -->
 	$stmt->execute() or die("Encountered a problem connecting to database(query INSERT 1)"); 
 	$stmt->bind_result($id);
 	$stmt->fetch();
-	echo $id;
 	
+	$query2 = "SELECT id FROM users_passwords WHERE password = ?";
+	$stmt2 = $db->prepare($query);
+	$stmt2->bind_param('s', $password);
+	$stmt2->execute() or die("Encountered a problem connecting to database(query INSERT 1)");
+	$stmt2->bind_result($id2);
+	$stmt2->fetch();
+	
+	echo $id . " " . $id2;
 	?>
 		
 	
