@@ -48,7 +48,9 @@ for each userName and resets this number after a succesful login -->
 	$stmt2->fetch();
 	$stmt2->free_result();
 	
-	echo $id . " " . $id2;
+	if($id = $id2){
+	    echo 'You have been logged in!!';
+	}
 	?>
 		
 	
