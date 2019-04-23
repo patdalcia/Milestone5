@@ -58,6 +58,10 @@ for each userName and resets this number after a succesful login -->
 	                    $_SESSION['password'] = $password;
 	                    $stmt->free_result();
 	                    $db->close();
+	                    if (isset($_COOKIE['login'])) {
+	                        unset($_COOKIE['login']);
+	                        setcookie('login', '', time() - 3600, '/'); // empty value and old timestamp
+	                    }
 	                    header("location: welcome.php");
 	                }
 	                } else {
