@@ -40,18 +40,16 @@ for each userName and resets this number after a succesful login -->
 	$stmt->fetch();
 	$stmt->free_result();
 	
-	$query2 = "SELECT id FROM users_passwords WHERE password = ?";
+	$query2 = "SELECT id FROM users_passwords WHERE password = ? and id = ?";
 	$stmt2 = $db->prepare($query2);
-	$stmt2->bind_param('s', $password);
+	$stmt2->bind_param('si', $password, $id);
 	$stmt2->execute() or die("Encountered a problem connecting to database(query INSERT 1)");
-	$stmt2->bind_result($id2);
+	$stmt2->bind_result($results);
 	$stmt2->fetch();
 	$stmt2->free_result();
 	
-	if($id = $id2){
-	    echo 'You have been logged in!!';
-	}else {
-	    echo '<a href="register.html">Create an account!</a>';
+	if(!$results){
+	    echo nl2br('<a href="register.html">Create an account!</a>\nYou have not been logged in!!');
 	    if(isset($_COOKIE['submit']))
 	    {
 	        if($_COOKIE['submit'] < 3)
@@ -60,6 +58,8 @@ for each userName and resets this number after a succesful login -->
 	            setcookie('submit', $attempts,time()+60*10);
 	        } else {echo 'you are banned for 10 minutes. try again later';}
 	    } else {setcookie('login',1,time()+60*10);}
+	}else {
+	    echo 'You have been logged in!!';
 	}
 	?>
 		
