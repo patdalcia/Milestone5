@@ -50,6 +50,16 @@ for each userName and resets this number after a succesful login -->
 	
 	if($id = $id2){
 	    echo 'You have been logged in!!';
+	}else {
+	    echo '<a href="register.html">Create an account!</a>';
+	    if(isset($_COOKIE['submit']))
+	    {
+	        if($_COOKIE['submit'] < 3)
+	        {
+	            $attempts = $_COOKIE['submit'] + 1;
+	            setcookie('submit', $attempts,time()+60*10);
+	        } else {echo 'you are banned for 10 minutes. try again later';}
+	    } else {setcookie('login',1,time()+60*10);}
 	}
 	?>
 		
