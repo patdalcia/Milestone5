@@ -61,7 +61,7 @@ for each userName and resets this number after a succesful login -->
 	                }
 	                } else {
 	                    echo 'Password is incorrect';
-	                    if(isset($_COOKIE['login']))
+	                    if(!empty($_COOKIE['login']))
 	                    {
 	                        if($_COOKIE['login'] < 3)
 	                        {
