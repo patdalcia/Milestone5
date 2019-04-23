@@ -59,14 +59,37 @@ for each userName and resets this number after a succesful login -->
 	                    $db->close();
 	                    header("location: welcome.php");
 	                }
-	                } else {echo 'Password is incorrect';exit; }
+	                } else {
+	                    echo 'Password is incorrect';
+	                    if(isset($_COOKIE['login']))
+	                    {
+	                        if($_COOKIE['login'] < 3)
+	                        {
+	                            $attempts = $_COOKIE['login'] + 1;
+	                            setcookie('login', $attempts, time()+60*10);
+	                            header('location: login.html');
+	                            die();
+	                        } else {
+	                            echo '<script language="javascript">alert("3 Login attempts failed. Wait for 10 minutes then try again.")</script>';
+	                            echo '<script language="javascript">location.replace("login.html");</script>';
+	                        }
+	                    } else {
+	                        setcookie('login', 1, time() + 60 * 10);
+	                    }
+	                    exit; 
+	                }
 	            }else {echo 'Oops something went wrong. Try again later';}
 	        }
-	    }else {echo 'No accounts found with that userName!';exit;}
+	    }else {
+	        echo 'No accounts found with that userName!';
+	        exit;
+	    }
 	}else {echo 'Oops something went wrong. Try again later';}
 	} else {echo 'it didnt work';}
+	
 	?>
 		
+	
 	
 	</body>
 
