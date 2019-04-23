@@ -15,7 +15,7 @@ for each userName and resets this number after a succesful login -->
 	<h1>Login page results</h1>
 	<?php 
 	
-	if(isset($_POST["login"]))
+	if (!empty($_POST)) 
 	{
     session_start(); 
 	require 'functions/myfuncs.php';
