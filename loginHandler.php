@@ -39,7 +39,6 @@ for each userName and resets this number after a succesful login -->
 	$stmt->bind_result($id);
 	$stmt->fetch();
 	$stmt->free_result();
-	echo $id;
 	
 	$query2 = "SELECT id FROM users_passwords WHERE password = ?";
 	$stmt2 = $db->prepare($query2);
@@ -48,7 +47,6 @@ for each userName and resets this number after a succesful login -->
 	$stmt2->bind_result($id2);
 	$stmt2->fetch();
 	$stmt2->free_result();
-	echo $id2;
 	
 	echo $id . " " . $id2;
 	?>
