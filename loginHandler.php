@@ -14,6 +14,9 @@ for each userName and resets this number after a succesful login -->
 	<body>
 	<h1>Login page results</h1>
 	<?php 
+	
+	if(isset($_POST['submit']))
+	{
     session_start(); 
 	require 'functions/myfuncs.php';
 	//Creating variables
@@ -61,7 +64,7 @@ for each userName and resets this number after a succesful login -->
 	        }
 	    }else {echo 'No accounts found with that userName!';exit;}
 	}else {echo 'Oops something went wrong. Try again later';}
-	
+	} else {echo 'it didnt work';}
 	?>
 		
 	
