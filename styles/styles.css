@@ -2,12 +2,23 @@
 
 input[type=text] {
   width: 100%;
-  padding: 12px 20px;
+  padding: 12px 15px;
   margin: 8px 0;
   box-sizing: border-box;
 }
 
 input[type=text]:focus {
+  border: 3px solid #555;
+}
+
+input[type=password] {
+  width: 100%;
+  padding: 12px 15px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+input[type=password]:focus {
   border: 3px solid #555;
 }
 
