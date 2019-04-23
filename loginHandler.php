@@ -14,13 +14,12 @@ for each userName and resets this number after a succesful login -->
 	<body>
 	<h1>Login page results</h1>
 	<?php 
-
+    session_start(); 
 	require 'functions/myfuncs.php';
 	//Creating variables
 	$username=trim($_POST['username']);
 	$password=trim($_POST['password']);
 	$id = 0;
-	$id2 = -1;
 	
 	//making sure that theres input for both username and password fields
 	if (!$password || !$username)
@@ -35,32 +34,34 @@ for each userName and resets this number after a succesful login -->
 	$query = "SELECT ID FROM users WHERE userName = ?";
 	$stmt = $db->prepare($query);
 	$stmt->bind_param('s', $username);
-	$stmt->execute() or die("Encountered a problem connecting to database(query INSERT 1)"); 
-	$stmt->bind_result($id);
-	$stmt->fetch();
-	$stmt->free_result();
+	if($stmt->execute() or die("Encountered a problem connecting to database(query INSERT 1)"))
+	{
+	    $stmt->store_result();
+	    if($stmt->num_rows > 0){ 
+	        $stmt->bind_result($id);
+	        if($stmt->fetch()){
+	            $stmt->free_result();
+	            $query = "SELECT id, password FROM users_passwords WHERE id = ? and password = ?";
+	            $stmt = $db->prepare($query);
+	            $stmt->bind_param('is', $id, $password);
+	            if($stmt->execute() or die("Encountered a problem connecting to database(query INSERT 1)"))
+	            {
+	                $stmt->store_result();
+	                if($stmt->num_rows > 0){
+	                $stmt->bind_result($id, $password);
+	                if($stmt->fetch()){
+	                    $_SESSION['ID'] = $id;
+	                    $_SESSION['password'] = $password;
+	                    $stmt->free_result();
+	                    $db->close();
+	                    header("location: welcome.php");
+	                }
+	                } else {echo 'Password is incorrect';exit; }
+	            }else {echo 'Oops something went wrong. Try again later';}
+	        }
+	    }else {echo 'No accounts found with that userName!';exit;}
+	}else {echo 'Oops something went wrong. Try again later';}
 	
-	$query2 = "SELECT id FROM users_passwords WHERE password = ? and id = ?";
-	$stmt2 = $db->prepare($query2);
-	$stmt2->bind_param('si', $password, $id);
-	$stmt2->execute() or die("Encountered a problem connecting to database(query INSERT 1)");
-	$stmt2->bind_result($results);
-	$stmt2->fetch();
-	$stmt2->free_result();
-	
-	if(!$results){
-	    echo nl2br('<a href="register.html">Create an account!</a>\nYou have not been logged in!!');
-	    if(isset($_COOKIE['submit']))
-	    {
-	        if($_COOKIE['submit'] < 3)
-	        {
-	            $attempts = $_COOKIE['submit'] + 1;
-	            setcookie('submit', $attempts,time()+60*10);
-	        } else {echo 'you are banned for 10 minutes. try again later';}
-	    } else {setcookie('login',1,time()+60*10);}
-	}else {
-	    echo 'You have been logged in!!';
-	}
 	?>
 		
 	
