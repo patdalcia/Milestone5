@@ -38,7 +38,7 @@ for each userName and resets this number after a succesful login -->
 	
 	$stmt -> fetch();
 	$numberofrows = $stmt->num_rows;
-	
+	echo 'outside if';
 	if($numberofrows > 0){
 	    echo 'inside if statement';
 	}
