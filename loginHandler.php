@@ -17,8 +17,7 @@ for each userName and resets this number after a succesful login -->
 	
 	if (!empty($_POST)) 
 	{
-	    if($_COOKIE['login'] <= 3)
-	    {
+	    if($_COOKIE['login'] < 3){
     session_start(); 
 	require 'functions/myfuncs.php';
 	//Creating variables
@@ -87,8 +86,15 @@ for each userName and resets this number after a succesful login -->
 	        exit;
 	    }
 	}else {echo 'Oops something went wrong. Try again later';}
-	} else {echo 'it didnt work';}
-	}
+	
+	    } else {
+	        echo '<script language="javascript">alert("3 Login attempts failed. Wait for 10 minutes then try again.")</script>';
+	        echo '<script language="javascript">location.replace("login.html");</script>';
+	    }
+	
+	} else {echo 'it didnt work';} //End of big if
+	
+	
 	
 	?>
 		
