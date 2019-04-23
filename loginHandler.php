@@ -61,7 +61,8 @@ for each userName and resets this number after a succesful login -->
 	                    header("location: welcome.php");
 	                }
 	                } else {
-	                    echo 'Password is incorrect';
+	                    echo '<script language="javascript">alert("Incorrect Username OR Password, please try again!")</script>';
+	                    echo '<script language="javascript">location.replace("login.html");</script>';
 	                    if(!empty($_COOKIE['login']))
 	                    {
 	                        if($_COOKIE['login'] < 3)
@@ -99,7 +100,7 @@ for each userName and resets this number after a succesful login -->
 	?>
 		
 	
-	
+	<footer><a href="register.html">No account? Create one!</a></footer>
 	</body>
 
 </html>
