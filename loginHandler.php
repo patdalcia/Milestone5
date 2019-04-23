@@ -83,7 +83,8 @@ for each userName and resets this number after a succesful login -->
 	            }else {echo 'Oops something went wrong. Try again later';}
 	        }
 	    }else {
-	        echo 'No accounts found with that userName!';
+	        echo '<script language="javascript">alert("Incorrect Username OR Password, please try again!")</script>';
+	        echo '<script language="javascript">location.replace("login.html");</script>';
 	        exit;
 	    }
 	}else {echo 'Oops something went wrong. Try again later';}
@@ -93,7 +94,7 @@ for each userName and resets this number after a succesful login -->
 	        echo '<script language="javascript">location.replace("login.html");</script>';
 	    }
 	
-	} else {echo 'it didnt work';} //End of big if
+	} else {echo 'Oops something went wrong. Try again later';} //End of big if
 	
 	
 	
