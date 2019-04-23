@@ -15,7 +15,7 @@ for each userName and resets this number after a succesful login -->
 	<h1>Login page results</h1>
 	<?php 
 	require 'myfuncs.php';
-	require 'Session_start.php';
+	//require 'Session_start.php';
 	//Creating variables
 	$username=trim($_POST['username']);
 	$password=trim($_POST['password']);
@@ -50,7 +50,7 @@ for each userName and resets this number after a succesful login -->
 	        
 	        // Save User ID in the Session
 	       
-	        resetCounter();
+	        //resetCounter();
 	    }
 	    else{
 	    if (isset($_COOKIE['submit']))
