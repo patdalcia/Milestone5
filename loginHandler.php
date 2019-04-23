@@ -37,11 +37,10 @@ for each userName and resets this number after a succesful login -->
 	$stmt->execute() or die("Encountered a problem connecting to database(query INSERT 1)"); 
 	$stmt->bind_result($id);
 	
-	while ($stmt->fetch()) {
-	    // Because $name and $countryCode are passed by reference, their value
-	    // changes on every iteration to reflect the current row
-	    echo $id;
-	   
+	if ($stmt->num_rows > 0 ){
+	    while($stmt->fetch()){
+	        echo $id;
+	    }
 	}
 	?>
 		
