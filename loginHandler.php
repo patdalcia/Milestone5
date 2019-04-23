@@ -47,6 +47,7 @@ for each userName and resets this number after a succesful login -->
 	$stmt2->execute() or die("Encountered a problem connecting to database(query INSERT 1)");
 	$stmt2->bind_result($id2);
 	$stmt2->fetch();
+	$stmt2->free_result();
 	echo $id2;
 	
 	echo $id . " " . $id2;
