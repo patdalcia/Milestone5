@@ -7,10 +7,10 @@
 
 function dbConnect() {
     
-    define("SERVERNAME", "milestone4mysql.mysql.database.azure.com");
-    define("USERNAME", "patrick@milestone4mysql");
+    define("SERVERNAME", "milestone5mysql.mysql.database.azure.com");
+    define("USERNAME", "patdalcia@milestone5mysql");
     define("PASSWORD", "Devildog1");
-    define("DBNAME", "milestone4");
+    define("DBNAME", "milestone5");
     
     //Establishing connection to database
     @$db = new mysqli();
