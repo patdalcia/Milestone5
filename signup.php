@@ -13,7 +13,7 @@ for each userName and resets this number after a succesful login -->
 	<body>
 	<h1>Pat's Website Results</h1>
 	<?php 
-	require '../functions/myfuncs.php';
+	require 'functions/myfuncs.php';
 	//Creating variables
 	$nameFirst=trim($_POST['nameFirst']); 
 	$nameLast=trim($_POST['nameLast']); 
