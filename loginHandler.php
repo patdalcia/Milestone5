@@ -41,11 +41,12 @@ for each userName and resets this number after a succesful login -->
 	echo $id;
 	
 	$query2 = "SELECT id FROM users_passwords WHERE password = ?";
-	$stmt2 = $db->prepare($query);
+	$stmt2 = $db->prepare($query2);
 	$stmt2->bind_param('s', $password);
 	$stmt2->execute() or die("Encountered a problem connecting to database(query INSERT 1)");
 	$stmt2->bind_result($id2);
 	$stmt2->fetch();
+	echo $id2;
 	
 	echo $id . " " . $id2;
 	?>
