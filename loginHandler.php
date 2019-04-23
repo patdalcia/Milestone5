@@ -63,7 +63,7 @@ for each userName and resets this number after a succesful login -->
 	                } else {
 	                    echo '<script language="javascript">alert("Incorrect Username OR Password, please try again!")</script>';
 	                    echo '<script language="javascript">location.replace("login.html");</script>';
-	                    if(!empty($_COOKIE['login']))
+	                    if(isset($_COOKIE['login']))
 	                    {
 	                        if($_COOKIE['login'] < 3)
 	                        {
