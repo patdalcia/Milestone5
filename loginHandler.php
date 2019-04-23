@@ -36,9 +36,9 @@ for each userName and resets this number after a succesful login -->
 	$stmt->bind_param('s', $username);
 	$stmt->execute() or die("Encountered a problem connecting to database(query INSERT 1)"); 
 	
-	$row = $stmt->fetch;
 	
-	if($row->num_rows > 0){
+	
+	if($row = $stmt->fetch_assoc() != NULL){
 	    echo 'Inside if statement';
 	}
 	?>
