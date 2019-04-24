@@ -30,8 +30,8 @@
 <form action="" method="post" id="showCategories">
 <table style="border: 0px;">
 <tr>
-<td>Not sure which category to pick? click here to see the whole list!</td>
-<td><input type="submit" name="categories"value="Create Post"></td>
+<td> 		</td>
+<td><input type="submit" name="categories"value="View Category List"></td>
 </tr>
 
 </table>
