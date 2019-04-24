@@ -17,7 +17,7 @@ if (!empty($_POST['usrform']))
     
     $query = "INSERT INTO posts (title, content, date_created, user_id, catID) VALUES (?, ?, NOW(), ?, ?)";
     $stmt = $db->prepare($query);
-    $stmt->bind_param('ssss', $title, $body, $_SESSION['ID'], $category);
+    $stmt->bind_param('ssis', $title, $body, $_SESSION['ID'], $category);
     if($stmt->execute())
     {
         echo 'Post has been saved succsesfully!';
