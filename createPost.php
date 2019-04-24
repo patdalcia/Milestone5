@@ -10,25 +10,23 @@
 <h2>My Blog Page</h2>
 
 <form action="postHandler.php" method="post" id="usrform">
-  Title of Post: <input type="text" name="title" maxlength="30">
-  <textarea rows="4" cols="50" name="body" form="usrform">
-   Enter text here...</textarea>
-  <?php 
-require 'functions/myfuncs.php';
+<table style="border: 0px;"> 
 
-$db = dbConnect();
-$query = "SELECT catID, name  FROM categories";
-$result = $db->query($query) or die('Error AGAIANAINFNN :(');
-
-echo "<select name='category' form='usrform'>";
-echo "<option value=''>Select a Category</option>";
-while ($row = $result->fetch_assoc()) {
-    echo "<option value='" . $row['catID'] . "'>" . $row['name'] . "</option>";
-}
-echo "</select>";
-
-?>
-  <input type="submit" value="Create Post">
+ <tr> 
+ <td>Title of Post: <input type="text" name="title" maxlength="30"></td>
+ </tr>
+ <tr>
+ <td>Body of post</td>
+ <td> <textarea rows="4" cols="50" name="body" form="usrform">Enter text here...</textarea></td>
+ </tr>
+  <tr> 
+  <td>Category</td>
+ 	<td><input type="text" name="category" size ='10' maxlength='30' /></td>
+  </tr>
+  <tr>
+  <td><input type="submit" value="Create Post"></td>
+  </tr>
+ </table>
 </form>
 
 <br>
