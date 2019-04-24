@@ -1,5 +1,5 @@
 <?php
-if (isset($_POST['category']))
+if (isset($_POST['usrform']))
 {
     require 'myfuncs.php';
     
