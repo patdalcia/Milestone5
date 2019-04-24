@@ -1,5 +1,5 @@
 <?php
-if (!empty($_POST['usrform']))
+if (!empty($_POST))
 {
     require 'myfuncs.php';
     
