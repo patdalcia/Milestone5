@@ -62,7 +62,7 @@ for each userName and resets this number after a succesful login -->
 	                        unset($_COOKIE['login']);
 	                        setcookie('login', '', time() - 3600, '/'); // empty value and old timestamp
 	                    }
-	                    header("location: createPost.php");
+	                    header("location: blog.php");
 	                }
 	                } else {
 	                    echo '<script language="javascript">alert("Incorrect Username OR Password, please try again!")</script>';

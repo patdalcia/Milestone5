@@ -51,7 +51,7 @@ if(isset($_POST["categories"])){
     
     echo '<table border="0" cellspacing="2" cellpadding="2">
       <tr>
-          <td> <font face="Arial">category Name</font> </td>
+          <td> <font face="Arial">Category Name</font> </td>
       </tr>';
     
     $query = 'SELECT name FROM categories';
