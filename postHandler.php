@@ -41,7 +41,17 @@
             $stmt->bind_param('s', $category);
             if($stmt->execute())
             {
-                echo 'No Category found with that name...Created new category!';
+                $stmt->free_result();
+                
+                $query = "INSERT INTO posts (title, content, user_id, catID, date_created) VALUES (?, ?, ?, ?, NOW())";
+                $stmt = $db->prepare($query);
+                $stmt->bind_param('ssis', $title, $body, $_SESSION['ID'], $results);
+                if($stmt->execute())
+                {
+                    echo 'Post has been saved succsesfully! Created new category!!';
+                } else { echo 'Error: Could not save post';}
+                
+                
             } else { echo 'Error: Could not create new category';}
         }
     }
