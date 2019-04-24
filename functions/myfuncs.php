@@ -27,7 +27,6 @@ function dbConnect() {
         exit;
         
     }else{
-        echo "Connection has been made properly";
         return $db;}
 }
 

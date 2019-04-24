@@ -20,7 +20,8 @@ $db = dbConnect();
 $query = "SELECT catID, name  FROM categories";
 $result = $db->query($query) or die('Error AGAIANAINFNN :(');
 
-echo "<select name='category'>";
+echo "<select name='category' form='usrform'>";
+echo "<option value=''>Select a Category</option>";
 while ($row = $result->fetch_assoc()) {
     echo "<option value='" . $row['catID'] . "'>" . $row['name'] . "</option>";
 }
