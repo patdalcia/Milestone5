@@ -26,9 +26,38 @@
   </tr>
  </table>
 </form>
+<ul>
+<li><a href=<?php showAllCategories()?>>Not sure which category to pick? Click here for a list of them!</a></li>
+</ul>
+
 
 <br>
 
 
 </body>
 </html>
+
+
+<?php 
+function showAllCategories(){
+    require 'functions/myfuncs.php';
+    
+    $db = dbConnect();
+    
+    echo '<table border="0" cellspacing="2" cellpadding="2">
+      <tr>
+          <td> <font face="Arial">category Name</font> </td>
+      </tr>';
+    
+    $query = 'SELECT name FROM categories';
+    if ($result = $db->query($query)) {
+        while ($row = $result->fetch_assoc()) {
+            $field1name = $row["name"];
+            echo '<tr>
+                  <td>'.$field1name.'</td>
+              </tr>';
+        }
+    }
+    echo '</table>';
+}
+?>
