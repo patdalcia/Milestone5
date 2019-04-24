@@ -6,6 +6,7 @@
     $body=trim($_POST['body']);
     $category=trim($_POST['category']);
     $results = 0;
+    $catID = 0;
     if (!$title || !$body || !$category)
     { 
         echo '<script language="javascript">alert("Input fields were left blank! Click OK to try again.")</script>';
@@ -41,11 +42,12 @@
             $stmt->bind_param('s', $category);
             if($stmt->execute())
             {
+                $catID = $db->insert_id;
                 $stmt->free_result();
                 
                 $query = "INSERT INTO posts (title, content, user_id, catID, date_created) VALUES (?, ?, ?, ?, NOW())";
                 $stmt = $db->prepare($query);
-                $stmt->bind_param('ssis', $title, $body, $_SESSION['ID'], $results);
+                $stmt->bind_param('ssis', $title, $body, $_SESSION['ID'], $catID);
                 if($stmt->execute())
                 {
                     echo 'Post has been saved succsesfully! Created new category!!';
