@@ -1,12 +1,12 @@
 <?php
 
-    require 'myfuncs.php';
+    require 'functions/myfuncs.php';
     
     $title=trim($_POST['title']);
     $body=trim($_POST['body']);
-    $category=($_POST['category']);
+    $category=trim($_POST['category']);
     
-    if (!$title || !$body || $category)
+    if (!$title || !$body || !$category)
     { 
         echo '<script language="javascript">alert("Input fields were left blank! Click OK to try again.")</script>';
         echo '<script language="javascript">location.replace("createPost.php");</script>';
