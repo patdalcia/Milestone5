@@ -1,5 +1,5 @@
 <?php
-if (isset($_POST['usrform']))
+if (!empty($_POST['usrform']))
 {
     require 'myfuncs.php';
     
@@ -7,10 +7,10 @@ if (isset($_POST['usrform']))
     $body=trim($_POST['body']);
     $category=($_POST['category']);
     
-    if (!$title || !$body)
+    if (!$title || !$body || $category)
     { 
         echo '<script language="javascript">alert("Input fields were left blank! Click OK to try again.")</script>';
-        echo '<script language="javascript">location.replace("blog.html");</script>';
+        echo '<script language="javascript">location.replace("createPost.php");</script>';
     }
     $db = dbConnect();
     session_start();
