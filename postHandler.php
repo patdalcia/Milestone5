@@ -14,7 +14,7 @@ if (!empty($_POST['usrform']))
     }
     $db = dbConnect();
     session_start();
-    
+    echo 'Made connections and session';
     $query = "INSERT INTO posts (title, content, date_created, user_id, catID) VALUES (?, ?, NOW(), ?, ?)";
     $stmt = $db->prepare($query);
     $stmt->bind_param('ssis', $title, $body, $_SESSION['ID'], $category);
