@@ -1,6 +1,5 @@
 <?php
-if (!empty($_POST))
-{
+
     require 'myfuncs.php';
     
     $title=trim($_POST['title']);
@@ -22,6 +21,6 @@ if (!empty($_POST))
     {
         echo 'Post has been saved succsesfully!';
     } else { echo 'Error: Could not save post';}
-}
+
 
 ?>
