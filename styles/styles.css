@@ -42,3 +42,6 @@ textarea {
   background-color: #f8f8f8;
   resize: none;
 }
+textarea: focus {
+	border: 3px solid #555;
+}
