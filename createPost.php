@@ -16,12 +16,10 @@
  <td>Title of Post: <input type="text" name="title" maxlength="30"></td>
  </tr>
  <tr>
- <td>Body of post</td>
- <td> <textarea rows="4" cols="50" name="body" form="usrform">Enter text here...</textarea></td>
+ <td>Body of post: <textarea rows="4" cols="50" name="body" form="usrform">Enter text here...</textarea></td>
  </tr>
   <tr> 
-  <td>Category</td>
- 	<td><input type="text" name="category" size ='10' maxlength='30' /></td>
+ 	<td>Post category: <input type="text" name="category" size ='10' maxlength='30' /></td>
   </tr>
   <tr>
   <td><input type="submit" value="Create Post"></td>
