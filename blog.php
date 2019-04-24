@@ -42,13 +42,21 @@ if(isset($_POST['create'])) {
 	<td>Create was clicked</td>
 </table>';
 } else if(isset($_POST['VallPosts'])){
-    echo 'VallPosts was clicked';
+    echo '<table style="border: 0px;">
+	<td>VallPosts</td>
+</table>';
 } else if (isset($_POST['VpostsByCategories'])){
-    echo 'VpostsByCategories was clicked';
+    echo '<table style="border: 0px;">
+	<td>VpostsByCategories was clicked</td>
+</table>';
 } else if (isset($_POST['Vcategories'])){
-    echo 'Vcategories was clicked';
+    echo '<table style="border: 0px;">
+	<td>Vcategories was clicked</td>
+</table>';
 } else if (isset($_POST['editPosts'])){
-    echo 'Edit posts was clicked';
+    echo '<table style="border: 0px;">
+	<td>Edit posts was clicked</td>
+</table>';
 }
 
 ?>
