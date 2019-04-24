@@ -13,26 +13,23 @@
   Title of Post: <input type="text" name="title" maxlength="30">
   <textarea rows="4" cols="50" name="body" form="usrform">
    Enter text here...</textarea>
-   <select name='category'>
-   
-   </select>
-  <input type="submit" value="Create Post">
-</form>
-<?php 
-/*
+  <?php 
 require 'functions/myfuncs.php';
 
 $db = dbConnect();
 $query = "SELECT catID, name  FROM categories";
 $result = $db->query($query) or die('Error AGAIANAINFNN :(');
 
-echo "<select name='PcID'>";
-while ($row = mysql_fetch_array($result)) {
-    echo "<option value='" . $row['PcID'] . "'>" . $row['PcID'] . "</option>";
+echo "<select name='category'>";
+while ($row = $result->fetch_assoc()) {
+    echo "<option value='" . $row['catID'] . "'>" . $row['name'] . "</option>";
 }
 echo "</select>";
-*/
+
 ?>
+  <input type="submit" value="Create Post">
+</form>
+
 <br>
 
 
