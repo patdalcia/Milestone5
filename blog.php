@@ -88,33 +88,32 @@ if(isset($_POST['create'])) {
     $query = "SELECT name, catID FROM `categories` ";
     $catInfo = $db->query($query) or die('Error AGAIANAINFNN :(');
     
-    /*
+    
             echo '
             <p>
             <select name="catSelect"> 
             <option value="0">Select a category</option>';
-            */
+            
             
             foreach($catInfo as $row) {
-                echo $row["catID"] . " " . $row["name"];
-                /*
+                
                 $field = $row['catID'];
                 $field1 = $row['name'];
                 echo '<option value="'. $field .'">'. $field1  .'</option>';
-                */
-                
+  
             }
             //echo '<option value="'.$row["catID"].'">'.$row["name"].'</option>';
             
-            /*
+            
             echo '
                 </select>
                 </p>';
-          */
-          
-            if(isset($_POST["catSelect"])){
-                echo $_POST["catSelect"];
+       
+            if($_POST["catID"] != 0){
+            $cat = $_POST["catID"];
             }
+           
+           
     
     
     
