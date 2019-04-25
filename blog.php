@@ -90,7 +90,7 @@ if(isset($_POST['create'])) {
     
     
             echo '
-            <p>
+            <form action="" method="post" id="catSelect">
             <select name="catSelect"> 
             <option value="0">Select a category</option>';
             
@@ -106,10 +106,11 @@ if(isset($_POST['create'])) {
             
             
             echo '
+                <input type="submit" name="ChooseCat" value="Select Category">
                 </select>
-                </p>';
+                </form>';
        
-            if($_POST["catID"] != 0){
+            if(isset($_POST["ChooseCat"])){
             $cat = $_POST["catID"];
             echo $cat;
             }
