@@ -19,7 +19,7 @@
  <td>Body of post: <textarea rows="4" cols="50" name="body" form="usrform">Enter text here...</textarea></td>
  </tr>
   <tr> 
- 	<td>Post category: <input type="text" name="category" size ='10' maxlength='30' /></td>
+ 	<td><?php selectBox()?></td>
   </tr>
   <tr>
   <td><input type="submit" value="Create Post"></td>
@@ -41,10 +41,44 @@
 
 </body>
 </html>
-
-
 <?php 
-if(isset($_POST["categories"])){
+function selectBox(){
+require 'functions/myfuncs.php';
+$db = dbConnect();
+$catInfo = "";
+$field = '';
+$field1 = '';
+
+$query = "SELECT name, catID FROM `categories` ";
+$catInfo = $db->query($query) or die('Error AGAIANAINFNN :(');
+
+
+echo '
+            <select name="Cat">
+            <option value="0">Select a category</option>';
+
+
+foreach($catInfo as $row) {
+    
+    $field = $row['catID'];
+    $field1 = $row['name'];
+    //echo '<option value="' . $field . '"name="' . $field1 . '>' . $field1 . '</option>';
+    echo '<option value="'. $field .'">'. $field1  .'</option>';
+    
+}
+//echo '<option value="'.$row["catID"].'">'.$row["name"].'</option>';
+
+
+echo '
+                </select>
+                </form>';
+
+$db->close();
+
+}
+
+/*
+if(isset($_POST["createCat"])){
     require 'functions/myfuncs.php';
     
     $db = dbConnect();
@@ -65,4 +99,5 @@ if(isset($_POST["categories"])){
     }
     echo '</table>';
 }
+*/
 ?>
