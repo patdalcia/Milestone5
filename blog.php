@@ -111,8 +111,8 @@ if(isset($_POST['create'])) {
                 </form>';
        
             if(isset($_POST["ChooseCat"])){
-            $cat = $_POST["catID"];
-            echo $cat;
+            
+            echo "IT WORKED";
             }
            
            
