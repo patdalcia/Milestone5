@@ -45,6 +45,11 @@ function createSelect(){
 }
 
 if(isset($_POST["submitEditPost"])){
+    $id = $_POST["userPosts"];
+    
+    echo $id;
+    
+    /*
     echo '
             <!DOCTYPE html>
 <html>
@@ -84,6 +89,7 @@ if(isset($_POST["submitEditPost"])){
 
 
          ';
+         */
 }
 
 if(isset($_POST["editPostCreate"])){
