@@ -226,7 +226,7 @@ if(isset($_POST["ChooseCat"])){
             $result->free();
             $db->close();
         }
-    }
+    }else{echo "Problem making query";}
 }
 
 ?>
