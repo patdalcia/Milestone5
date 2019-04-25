@@ -147,7 +147,7 @@ if(isset($_POST['create'])) {
     
     
     echo '
-            <form action="editPost.php" method="post" id="editPost">
+            <form action="" method="post" id="editPost">
             <select name="userPosts">
             <option value="0">Select a post</option>';
     
