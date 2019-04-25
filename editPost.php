@@ -51,7 +51,7 @@ if(isset($_POST["submitEditPost"])){
  
     header("location: blog.php");
     
-    /*
+    
     echo '
     <!DOCTYPE html>
     <html>
@@ -98,7 +98,7 @@ if(isset($_POST["submitEditPost"])){
 </html>
     
 ';
-         */
+         
 }
 
 if(isset($_POST["editPostCreate"])){
