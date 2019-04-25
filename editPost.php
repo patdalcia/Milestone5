@@ -21,7 +21,7 @@ function createSelect(){
         echo '
             <form action="" method="post" id="editPost">
             <select name="userPosts">
-            <option value="0">Select a category</option>';
+            <option value="0">Select a post</option>';
         
         
         foreach($postInfo as $row) {
