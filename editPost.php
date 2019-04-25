@@ -38,8 +38,6 @@ function createSelect(){
             echo '<option value="'. $field .'">'. $field1  .'</option>';
             
         }
-        //echo '<option value="'.$row["catID"].'">'.$row["name"].'</option>';
-        
         
         echo '
                 <input type="submit" name="submitEditPost" value="Choose Post">
@@ -55,8 +53,7 @@ if(isset($_POST["submitEditPost"])){
     $postInfo = getPost($id);
     $title = $postInfo["title"];
     $content = $postInfo["content"];
-    echo $title;
-    echo $content;
+    header("location: login.html");
     
     /*
     echo '
