@@ -86,7 +86,7 @@ if(isset($_POST["submitEditPost"])){
          ';
 }
 
-if(isset($_POST["UpdatePost"])){
+if(isset($_POST["editPostCreate"])){
     header("location: blog.php");
 }
 
