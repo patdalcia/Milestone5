@@ -37,7 +37,7 @@ function createSelect(){
         
         
         echo '
-                <input type="submit" name="submitEditPost value="Choose Post">
+                <input type="submit" name="submitEditPost" value="Choose Post">
                 </select>
                 </form>';
         
