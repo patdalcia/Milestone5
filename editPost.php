@@ -1,111 +1,231 @@
-<?php createSelect();?>
+<?php
+
+/*
+
+EDIT.PHP
+
+Allows user to edit specific entry in database
+
+*/
+
+
+
+// creates the edit record form
+
+// since this form is used multiple times in this file, I have made it a function that is easily reusable
+
+function renderForm($id, $firstname, $lastname, $error)
+
+{
+    
+    ?>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+
+<head>
+
+<title>Edit Record</title>
+
+</head>
+
+<body>
 
 <?php
-function getPost($postId){
-    require_once 'functions/myfuncs.php';
-    $db = dbConnect();
-    $query = "SELECT title, content FROM `posts` WHERE ID = " . $postId;
-    $postInfo = $db->query($query) or die('Error AGAIANAINFNN :(');
-    $title = $postInfo["title"];
-    
-    echo '
-        <!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<link rel="stylesheet" href="styles/styles.css">
-<title>My Blog Page</title>
-        
-</head>
-<body>
-<h2>My Blog Page</h2>
-        
-<form action="postHandler.php" method="post" id="usrform">
-<table style="border: 0px;">
-        
- <tr>
- <td>Title of Post: <input type="text" name="title"' . 'value="' . $title . '"maxlength="30"></td>
- </tr>
- <tr>
- <td>Body of post: <textarea rows="4" cols="50" name="body" form="usrform">Enter text here...</textarea></td>
- </tr>
-  <tr>
- 	<td><?php selectBox()?></td>
-  </tr>
-  <tr>
-  <td><input type="submit" value="Create Post"></td>
-  </tr>
- </table>
+
+// if there are any errors, display them
+
+if ($error != '')
+
+{
+
+echo '<div style="padding:4px; border:1px solid red; color:red;">'.$error.'</div>';
+
+}
+
+?>
+
+
+
+<form action="" method="post">
+
+<input type="text" name="title" value="<?php echo $title; ?>"/>
+
+<div>
+
+<p><strong>Body</strong> <?php echo $content; ?></p>
+
+
+<input type="submit" name="submit" value="Submit">
+
+</div>
+
 </form>
-     
-<form action="" method="post" id="showCategories">
-<table style="border: 0px;">
-<tr>
-<td> 		</td>
-<td><input type="submit" name="categories"value="View Category List"></td>
-</tr>
-     
-</table>
-</form>
-<br>
-     
-     
+
 </body>
+
 </html>
-';
-    
-    $db->close();
-    return $postInfo;
+
+<?php
+
 }
 
-function createSelect(){
-    session_start();
-    
-        require 'functions/myfuncs.php';
-        $db = dbConnect();
-        $postInfo = "";
-        $field = '';
-        $field1 = '';
-        
-        $query = "SELECT ID, title FROM `posts` WHERE user_id = " . $_SESSION['ID'];
-        $postInfo = $db->query($query) or die('Error AGAIANAINFNN :(');
-        
-        
-        echo '
-            <form action="" method="post" id="editPost">
-            <select name="userPosts">
-            <option value="0">Select a post</option>';
-        
-        
-        foreach($postInfo as $row) {
-            
-            $field = $row['ID'];
-            $field1 = $row['title'];
-          
-            //echo '<option value="' . $field . '"name="' . $field1 . '>' . $field1 . '</option>';
-            echo '<option value="'. $field .'">'. $field1  .'</option>';
-            
-        }
-        
-        echo '
-                <input type="submit" name="submitEditPost" value="Choose Post">
-                </select>
-                </form>';
-        
-        $db->close();
+
+
+
+
+
+
+// connect to the database
+
+require 'functions/myfuncs.php';
+
+
+
+// check if the form has been submitted. If it has, process the form and save it to the database
+
+if (isset($_POST['submit']))
+
+{
+
+// confirm that the 'id' value is a valid integer before getting the form data
+
+if (is_numeric($_POST['id']))
+
+{
+
+// get form data, making sure it is valid
+
+$id = $_POST['id'];
+
+$firstname = mysql_real_escape_string(htmlspecialchars($_POST['firstname']));
+
+$lastname = mysql_real_escape_string(htmlspecialchars($_POST['lastname']));
+
+
+
+// check that firstname/lastname fields are both filled in
+
+if ($firstname == '' || $lastname == '')
+
+{
+
+// generate error message
+
+$error = 'ERROR: Please fill in all required fields!';
+
+
+
+//error, display form
+
+renderForm($id, $firstname, $lastname, $error);
+
 }
 
-if(isset($_POST["submitEditPost"])){
- 
-    getPost($_POST["userPosts"]);
- 
-         
+else
+
+{
+
+// save the data to the database
+
+mysql_query("UPDATE players SET firstname='$firstname', lastname='$lastname' WHERE id='$id'")
+
+or die(mysql_error());
+
+
+
+// once saved, redirect back to the view page
+
+header("Location: view.php");
+
 }
 
-if(isset($_POST["editPostCreate"])){
-    header("location: blog.php");
 }
 
+else
+
+{
+
+// if the 'id' isn't valid, display an error
+
+echo 'Error!';
+
+}
+
+}
+
+else
+
+// if the form hasn't been submitted, get the data from the db and display the form
+
+{
+
+
+
+// get the 'id' value from the URL (if it exists), making sure that it is valid (checing that it is numeric/larger than 0)
+
+if (isset($_GET['id']) && is_numeric($_GET['id']) && $_GET['id'] > 0)
+
+{
+
+// query db
+
+$id = $_GET['id'];
+
+$result = mysql_query("SELECT * FROM players WHERE id=$id")
+
+or die(mysql_error());
+
+$row = mysql_fetch_array($result);
+
+
+
+// check that the 'id' matches up with a row in the databse
+
+if($row)
+
+{
+
+
+
+// get data from db
+
+$firstname = $row['firstname'];
+
+$lastname = $row['lastname'];
+
+
+
+// show form
+
+renderForm($id, $firstname, $lastname, '');
+
+}
+
+else
+
+// if no match, display result
+
+{
+
+echo "No results!";
+
+}
+
+}
+
+else
+
+// if the 'id' in the URL isn't valid, or if there is no 'id' value, display an error
+
+{
+
+echo 'Error!';
+
+}
+
+}
 
 ?>
 
