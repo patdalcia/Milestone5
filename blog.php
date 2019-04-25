@@ -111,6 +111,7 @@ if(isset($_POST['create'])) {
        
             if($_POST["catID"] != 0){
             $cat = $_POST["catID"];
+            echo $cat;
             }
            
            
