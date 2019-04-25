@@ -6,6 +6,54 @@ function getPost($postId){
     $db = dbConnect();
     $query = "SELECT title, content FROM `posts` WHERE ID = " . $postId;
     $postInfo = $db->query($query) or die('Error AGAIANAINFNN :(');
+    $title = $postInfo["title"];
+    
+    echo '
+        <!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" href="styles/styles.css">
+<title>My Blog Page</title>
+        
+</head>
+<body>
+<h2>My Blog Page</h2>
+        
+<form action="postHandler.php" method="post" id="usrform">
+<table style="border: 0px;">
+        
+ <tr>
+ <td>Title of Post: <input type="text" name="title"' . 'value="' . $title . '"maxlength="30"></td>
+ </tr>
+ <tr>
+ <td>Body of post: <textarea rows="4" cols="50" name="body" form="usrform">Enter text here...</textarea></td>
+ </tr>
+  <tr>
+ 	<td><?php selectBox()?></td>
+  </tr>
+  <tr>
+  <td><input type="submit" value="Create Post"></td>
+  </tr>
+ </table>
+</form>
+     
+<form action="" method="post" id="showCategories">
+<table style="border: 0px;">
+<tr>
+<td> 		</td>
+<td><input type="submit" name="categories"value="View Category List"></td>
+</tr>
+     
+</table>
+</form>
+<br>
+     
+     
+</body>
+</html>
+';
+    
     $db->close();
     return $postInfo;
 }
@@ -49,53 +97,8 @@ function createSelect(){
 
 if(isset($_POST["submitEditPost"])){
  
-    $postInfo = getPost($_POST["userPosts"]);
-    $title = $postInfo["title"];
-  echo '
-        <!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<link rel="stylesheet" href="styles/styles.css">
-<title>My Blog Page</title>
-
-</head>
-<body>
-<h2>My Blog Page</h2>
-
-<form action="postHandler.php" method="post" id="usrform">
-<table style="border: 0px;"> 
-
- <tr> 
- <td>Title of Post: <input type="text" name="title"' . 'value="' . $title . '"maxlength="30"></td>
- </tr>
- <tr>
- <td>Body of post: <textarea rows="4" cols="50" name="body" form="usrform">Enter text here...</textarea></td>
- </tr>
-  <tr> 
- 	<td><?php selectBox()?></td>
-  </tr>
-  <tr>
-  <td><input type="submit" value="Create Post"></td>
-  </tr>
- </table>
-</form>
-
-<form action="" method="post" id="showCategories">
-<table style="border: 0px;">
-<tr>
-<td> 		</td>
-<td><input type="submit" name="categories"value="View Category List"></td>
-</tr>
-
-</table>
-</form>
-<br>
-
-
-</body>
-</html>
-';
+    getPost($_POST["userPosts"]);
+ 
          
 }
 
