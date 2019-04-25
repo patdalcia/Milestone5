@@ -85,7 +85,7 @@ if(isset($_POST["editPostCreate"])){
 <table style="border: 0px;"> 
 
  <tr> 
- <td>Title of Post: <input type="text" name="title" value="<?php echo 'YEETe';?>" maxlength="30"></td>
+ <td>Title of Post: <input type="text" name="title" value="<?php if(isset($title)){echo $title;}?>" maxlength="30"></td>
  </tr>
  <tr>
  <td>Body of post: <textarea rows="4" cols="50" name="body" form="usrform">Enter text here...</textarea></td>
