@@ -110,14 +110,7 @@ if(isset($_POST['create'])) {
                 </select>
                 </form>';
        
-            if(isset($_POST["ChooseCat"])){
-            
-            header("location: login.html");
-            }
-           
-           
-    
-    
+
     
 } else if (isset($_POST['Vcategories'])){
     require 'functions/myfuncs.php';
@@ -192,4 +185,9 @@ if(isset($_POST["catSelect"]) && $_POST["catSelect"] != 0){
 }// else if(!isset($_POST["catSelect"])){echo 'Please select a category!';}
 
 */
+if(isset($_POST["ChooseCat"])){
+    
+    header("location: login.html");
+}
+
 ?>
