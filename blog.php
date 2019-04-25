@@ -83,19 +83,21 @@ if(isset($_POST['create'])) {
     $field = '';
     $field1 = '';
     $i = 0;
+    $cat = 0;
     
     $query = "SELECT name, catID FROM `categories` ";
     $stmt = $db->prepare($query);
     if($stmt->execute()){
         $stmt->bind_result($catInfo);
         if($stmt->fetch()){
-            $stmt->free_result();
+            //$stmt->free_result();
     
             echo '
             <p>
-            <select name="catSelect"> ';
+            <select name="catSelect"> 
+            <option value="">Select a category</option>';
             
-            while ($row = $catInfo->fetch_assoc()) {
+            while ($row = $stmt->fetch_assoc()) {
                 $field = $row["name"];
                 $field1 = $row["catID"];
                echo '<option value="'.$field1.'">'.$field.'</option>';
@@ -104,10 +106,10 @@ if(isset($_POST['create'])) {
                 </select>
                 </p>';
             if(isset($_POST["catSelect"])){
-            
+            $cat = $_POST["catSelect"];
             $query = "SELECT ID, user_id, title, content, date_created FROM `posts` WHERE catID = ?";
             $stmt = $db->prepare($query);
-            $stmt->bind_param("i", $field1);
+            $stmt->bind_param("i", $cat);
             if($stmt->execute()){
                 $stmt->bind_result($result);
                 if($stmt->fetch()){
