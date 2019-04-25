@@ -104,6 +104,7 @@ if(isset($_POST['create'])) {
                 </select>
                 </p>';
             if(isset($_POST["catSelect"])){
+                echo 'Inside isset';
             $cat = $_POST["catSelect"];
             $query = "SELECT ID, user_id, title, content, date_created FROM `posts` WHERE catID = ?";
             $stmt = $db->prepare($query);
