@@ -112,7 +112,7 @@ if(isset($_POST['create'])) {
        
             if(isset($_POST["ChooseCat"])){
             
-            echo "IT WORKED";
+            header("location: login.html");
             }
            
            
