@@ -45,8 +45,7 @@ function createSelect(){
 }
 
 if(isset($_POST["submitEditPost"])){
-    echo 'Form worked';
-    echo $_POST["userPosts"];
+    header("location: blog.php");
 }
 
 /*
