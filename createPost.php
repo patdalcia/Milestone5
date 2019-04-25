@@ -77,27 +77,4 @@ $db->close();
 
 }
 
-/*
-if(isset($_POST["createCat"])){
-    require 'functions/myfuncs.php';
-    
-    $db = dbConnect();
-    
-    echo '<table border="0" cellspacing="2" cellpadding="2">
-      <tr>
-          <td> <font face="Arial">Category Name</font> </td>
-      </tr>';
-    
-    $query = 'SELECT name FROM categories';
-    if ($result = $db->query($query)) {
-        while ($row = $result->fetch_assoc()) {
-            $field1name = $row["name"];
-            echo '<tr>
-                  <td>'.$field1name.'</td>
-              </tr>';
-        }
-    }
-    echo '</table>';
-}
-*/
 ?>

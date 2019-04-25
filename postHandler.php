@@ -5,8 +5,7 @@
     $title=trim($_POST['title']);
     $body=trim($_POST['body']);
     $category=trim($_POST['Cat']);
-    $results = 0;
-    $catID = 0;
+    
     if (!$title || !$body || !$category)
     { 
         echo '<script language="javascript">alert("Input fields were left blank! Click OK to try again.")</script>';
@@ -19,7 +18,7 @@
                 
                 $query = "INSERT INTO posts (title, content, user_id, catID, date_created) VALUES (?, ?, ?, ?, NOW())";
                 $stmt = $db->prepare($query);
-                $stmt->bind_param('ssis', $title, $body, $_SESSION['ID'], $results);
+                $stmt->bind_param('ssis', $title, $body, $_SESSION['ID'], $category);
                 if($stmt->execute())
                 {
                     echo 'Post has been saved succsesfully!';
