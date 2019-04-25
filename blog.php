@@ -85,12 +85,7 @@ if(isset($_POST['create'])) {
     $i = 0;
     $cat = 0;
     
-    $query = "SELECT name, catID FROM `categories` ";
-    $stmt = $db->prepare($query);
-    if($stmt->execute()){
-        $stmt->bind_result($catInfo);
-        if($stmt->fetch()){
-            $stmt->free_result();
+    $catInfo = $db->fetchAll("SELECT name, catID FROM `categories` ") or die("Error: Could not retrieve categories");
     
             echo '
             <p>
@@ -148,8 +143,8 @@ if(isset($_POST['create'])) {
                 }
             }
             } else if(!isset($_POST["catSelect"])){echo 'Please select a category!';}
-        }
-    }
+        
+    
     
     
 } else if (isset($_POST['Vcategories'])){
