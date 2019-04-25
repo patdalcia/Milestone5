@@ -45,11 +45,8 @@ function createSelect(){
 }
 
 if(isset($_POST["submitEditPost"])){
-    header("location: blog.php");
-}
-
-/*
-  <!DOCTYPE html>
+    echo '
+            <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
@@ -73,27 +70,25 @@ if(isset($_POST["submitEditPost"])){
  	<td><?php selectBox()?></td>
   </tr>
   <tr>
-  <td><input type="submit" value="Create Post"></td>
+  <td><input type="submit" name="editPostCreate" value="Update Post"></td>
   </tr>
  </table>
 </form>
 
-<form action="" method="post" id="showCategories">
-<table style="border: 0px;">
-<tr>
-<td> 		</td>
-<td><input type="submit" name="categories"value="View Category List"></td>
-</tr>
-
-</table>
-</form>
 <br>
 
 
 </body>
 </html>
- 
- */
+
+
+
+         ';
+}
+
+if(isset($_POST["UpdatePost"])){
+    header("location: blog.php");
+}
 
 
 ?>
