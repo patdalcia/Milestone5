@@ -98,9 +98,11 @@ if(isset($_POST['create'])) {
             <option value="">Select a category</option>';
             
             foreach($catInfo as $row) {
-                echo '<option value="'.$row["catID"].'">'.$row["name"].'</option>';
+                $field = $row['catID'];
+                $field1 = $row['name'];
+                echo "<option value='$field'>'$field1'</option>";
             }
-            
+            echo '<option value="'.$row["catID"].'">'.$row["name"].'</option>';
             
             echo '
                 </select>
@@ -145,7 +147,7 @@ if(isset($_POST['create'])) {
                     $db->close();
                 }
             }
-            } else if(!isset($_POST["catSelect"])){echo 'Please select a category and try again!';}
+            } else if(!isset($_POST["catSelect"])){echo 'Please select a category!';}
         }
     }
     
