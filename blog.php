@@ -50,17 +50,16 @@ if(isset($_POST['create'])) {
       <tr>
           <td> <font face="Arial">Title of post</font> </td>
           <td> <font face="Arial">User ID</font> </td>
-          <td> <font face="Arial">Title of Post</font> </td>
+          <td> <font face="Arial">Post ID</font> </td>
           <td> <font face="Arial">Body of Post</font> </td>
           <td> <font face="Arial">Date post was created</font> </td>
-          <td> <font face="Arial">Date post was modified</font> </td>
       </tr>';
     
     if ($result = $db->query($query)) {
         while ($row = $result->fetch_assoc()) {
-            $field1name = $row["ID"];
+            $field1name = $row["title"];
             $field2name = $row["user_id"];
-            $field3name = $row["title"];
+            $field3name = $row["ID"];
             $field4name = $row["content"];
             $field5name = $row["date_created"];
            
