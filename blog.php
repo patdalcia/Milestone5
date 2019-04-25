@@ -85,7 +85,8 @@ if(isset($_POST['create'])) {
     $i = 0;
     $cat = 0;
     
-    $catInfo = $db->fetchAll("SELECT name, catID FROM `categories` ") or die("Error: Could not retrieve categories");
+    $query = "SELECT name, catID FROM `categories` ";
+    $catInfo = $db->query($query) or die('Error AGAIANAINFNN :(');
     
             echo '
             <p>
