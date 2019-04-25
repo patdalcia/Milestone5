@@ -55,7 +55,7 @@ if(isset($_POST["submitEditPost"])){
     $postInfo = getPost($id);
     $title = $postInfo["title"];
     $content = $postInfo["content"];
-    
+    echo 'got variables';
     
     
     echo "
