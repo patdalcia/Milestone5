@@ -48,12 +48,8 @@ function createSelect(){
 }
 
 if(isset($_POST["submitEditPost"])){
-    $id = $_POST["userPosts"];
-    
-    $postInfo = getPost($id);
-    $title = $postInfo["title"];
-    $content = $postInfo["content"];
-    header("location: login.html");
+ 
+    header("location: blog.php");
     
     /*
     echo '
