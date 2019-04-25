@@ -134,7 +134,40 @@ if(isset($_POST['create'])) {
     $result->free();
     $db->close();
 } else if (isset($_POST['editPosts'])){
-    header("location: editPost.php");
+    session_start();
+    
+    require 'functions/myfuncs.php';
+    $db = dbConnect();
+    $postInfo = "";
+    $field = '';
+    $field1 = '';
+    
+    $query = "SELECT ID, title FROM `posts` WHERE user_id = " . $_SESSION['ID'];
+    $postInfo = $db->query($query) or die('Error AGAIANAINFNN :(');
+    
+    
+    echo '
+            <form action="editPost.php" method="post" id="editPost">
+            <select name="userPosts">
+            <option value="0">Select a post</option>';
+    
+    
+    foreach($postInfo as $row) {
+        
+        $field = $row['ID'];
+        $field1 = $row['title'];
+        
+        //echo '<option value="' . $field . '"name="' . $field1 . '>' . $field1 . '</option>';
+        echo '<option value="'. $field .'">'. $field1  .'</option>';
+        
+    }
+    
+    echo '
+                <input type="submit" name="submitEditPost" value="Choose Post">
+                </select>
+                </form>';
+    
+    $db->close();
 }
 
 if(isset($_POST["ChooseCat"])){
