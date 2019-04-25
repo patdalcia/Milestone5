@@ -57,7 +57,7 @@ if(isset($_POST["submitEditPost"])){
 <body>
 <h2>My Blog Page</h2>
 
-<form action="postHandler.php" method="post" id="usrform">
+<form action="" method="post" id="usrform">
 <table style="border: 0px;"> 
 
  <tr> 
