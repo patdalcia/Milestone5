@@ -49,8 +49,8 @@ function createSelect(){
 
 if(isset($_POST["submitEditPost"])){
  
-    //header("location: blog.php");
-    
+    $postInfo = getPost($_POST["userPosts"]);
+    $title = $postInfo["title"];
   echo '
         <!DOCTYPE html>
 <html>
@@ -67,7 +67,7 @@ if(isset($_POST["submitEditPost"])){
 <table style="border: 0px;"> 
 
  <tr> 
- <td>Title of Post: <input type="text" name="title" maxlength="30"></td>
+ <td>Title of Post: <input type="text" name="title"' . 'value="' . $title . '"maxlength="30"></td>
  </tr>
  <tr>
  <td>Body of post: <textarea rows="4" cols="50" name="body" form="usrform">Enter text here...</textarea></td>
