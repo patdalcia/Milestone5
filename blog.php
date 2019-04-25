@@ -38,13 +38,45 @@
 
 <?php
 if(isset($_POST['create'])) {
-  echo '<table style="border: 0px;"> 
-	<td>Create was clicked</td>
-</table>';
+    header('location: createPost.php');
 } else if(isset($_POST['VallPosts'])){
-    echo '<table style="border: 0px;">
-	<td>VallPosts</td>
-</table>';
+    require_once 'myfuncs.php';
+    $db = dbConnect();
+    
+    $query = "SELECT ID, user_id, title, content, date_created FROM `posts` ";
+    $result = $db->query($query) or die('Error inside utility.php');
+    
+    echo '<table border="0" cellspacing="2" cellpadding="2">
+      <tr>
+          <td> <font face="Arial">Title of post</font> </td>
+          <td> <font face="Arial">User ID</font> </td>
+          <td> <font face="Arial">Title of Post</font> </td>
+          <td> <font face="Arial">Body of Post</font> </td>
+          <td> <font face="Arial">Date post was created</font> </td>
+          <td> <font face="Arial">Date post was modified</font> </td>
+      </tr>';
+    
+    if ($result = $db->query($query)) {
+        while ($row = $result->fetch_assoc()) {
+            $field1name = $row["ID"];
+            $field2name = $row["user_id"];
+            $field3name = $row["title"];
+            $field4name = $row["content"];
+            $field5name = $row["date_created"];
+           
+            
+            echo '<tr>
+                  <td>'.$field1name.'</td>
+                  <td>'.$field2name.'</td>
+                  <td>'.$field3name.'</td>
+                  <td>'.$field4name.'</td>
+                  <td>'.$field5name.'</td>
+              </tr>';
+        }
+        $result->free();
+        $db->close();
+    } 
+    
 } else if (isset($_POST['VpostsByCategories'])){
     echo '<table style="border: 0px;">
 	<td>VpostsByCategories was clicked</td>
