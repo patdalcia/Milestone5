@@ -21,7 +21,7 @@
                 $stmt->bind_param('ssis', $title, $body, $_SESSION['ID'], $category);
                 if($stmt->execute())
                 {
-                    echo 'Post has been saved succsesfully!';
+                    header("location: blog.php");
                 } else { echo 'Error: Could not save post';}
             
         
