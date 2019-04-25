@@ -90,18 +90,18 @@ if(isset($_POST['create'])) {
     if($stmt->execute()){
         $stmt->bind_result($catInfo);
         if($stmt->fetch()){
-            //$stmt->free_result();
+            $stmt->free_result();
     
             echo '
             <p>
             <select name="catSelect"> 
             <option value="">Select a category</option>';
             
-            while ($row = $stmt->fetch_assoc()) {
-                $field = $row["name"];
-                $field1 = $row["catID"];
-               echo '<option value="'.$field1.'">'.$field.'</option>';
+            foreach($catInfo as $row) {
+                echo '<option value="'.$row["catID"].'">'.$row["name"].'</option>';
             }
+            
+            
             echo '
                 </select>
                 </p>';
