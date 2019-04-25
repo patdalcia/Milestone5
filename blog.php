@@ -82,8 +82,6 @@ if(isset($_POST['create'])) {
     $catInfo = "";
     $field = '';
     $field1 = '';
-    $i = 0;
-    $cat = 0;
     
     $query = "SELECT name, catID FROM `categories` ";
     $catInfo = $db->query($query) or die('Error AGAIANAINFNN :(');
@@ -189,9 +187,10 @@ if(isset($_POST["catSelect"]) && $_POST["catSelect"] != 0){
 if(isset($_POST["ChooseCat"])){
     require 'functions/myfuncs.php';
     $db = dbConnect();
+    $cat = $_POST["cat"];
     
-    $query = "SELECT ID, user_id, title, content, date_created FROM `posts` ";
-   // $result = $db->query($query) or die('Error inside utility.php');
+    $query = "SELECT ID, user_id, title, content, date_created FROM `posts` WHERE catID = $cat";
+    $result = $db->query($query) or die('Error inside utility.php');
     
     echo '<table border="0" cellspacing="2" cellpadding="2">
       <tr>
