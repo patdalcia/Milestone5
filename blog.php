@@ -188,7 +188,7 @@ if(isset($_POST["catSelect"]) && $_POST["catSelect"] != 0){
 */
 if(isset($_POST["ChooseCat"])){
     echo 'Inside isset';
-    $cat = $_POST["cat"];
+    $cat = (int)$_POST["cat"];
     $query = "SELECT ID, user_id, title, content, date_created FROM `posts` WHERE catID = ?";
     $stmt = $db->prepare($query);
     $stmt->bind_param("i", $cat);
