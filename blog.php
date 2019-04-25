@@ -100,7 +100,7 @@ if(isset($_POST['create'])) {
             foreach($catInfo as $row) {
                 $field = $row['catID'];
                 $field1 = $row['name'];
-                echo "<option value='$field'>$field1</option>";
+                echo '<option value="'. $field .'">'. $field1  .'</option>';
             }
             //echo '<option value="'.$row["catID"].'">'.$row["name"].'</option>';
             
