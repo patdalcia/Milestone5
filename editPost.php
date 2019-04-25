@@ -1,8 +1,13 @@
 <?php createSelect();?>
 
 <?php
-function getPost(){
-    
+function getPost($postId){
+    require_once 'functions/myfuncs.php';
+    $db = dbConnect();
+    $query = "SELECT title, content FROM `posts` WHERE ID = " . $postId;
+    $postInfo = $db->query($query) or die('Error AGAIANAINFNN :(');
+    $db->close();
+    return $postInfo;
 }
 
 function createSelect(){
@@ -47,35 +52,38 @@ function createSelect(){
 if(isset($_POST["submitEditPost"])){
     $id = $_POST["userPosts"];
     
-    echo $id;
+    $postInfo = getPost($id);
+    $title = $postInfo["title"];
+    $content = $postInfo["content"];
     
-    /*
-    echo '
+    
+    
+    echo "
             <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<link rel="stylesheet" href="styles/styles.css">
+<meta charset='ISO-8859-1'>
+<link rel='stylesheet' href='styles/styles.css'>
 <title>My Blog Page</title>
 
 </head>
 <body>
 <h2>My Blog Page</h2>
 
-<form action="" method="post" id="usrform">
-<table style="border: 0px;"> 
+<form action='' method='post' id='usrform'>
+<table style='border: 0px;'> 
 
  <tr> 
- <td>Title of Post: <input type="text" name="title" maxlength="30"></td>
+ <td>Title of Post: <input type='text' name='title' value='$title'maxlength='30'></td>
  </tr>
  <tr>
- <td>Body of post: <textarea rows="4" cols="50" name="body" form="usrform">Enter text here...</textarea></td>
+ <td>Body of post: <textarea rows='4' cols='50' name='body' form='usrform'>$content</textarea></td>
  </tr>
   <tr> 
  	<td><?php selectBox()?></td>
   </tr>
   <tr>
-  <td><input type="submit" name="editPostCreate" value="Update Post"></td>
+  <td><input type='submit' name='editPostCreate' value='Update Post'></td>
   </tr>
  </table>
 </form>
@@ -88,8 +96,8 @@ if(isset($_POST["submitEditPost"])){
 
 
 
-         ';
-         */
+         ";
+         
 }
 
 if(isset($_POST["editPostCreate"])){
