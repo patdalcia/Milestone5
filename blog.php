@@ -40,7 +40,7 @@
 if(isset($_POST['create'])) {
     header('location: createPost.php');
 } else if(isset($_POST['VallPosts'])){
-    require_once 'myfuncs.php';
+    require 'functions/myfuncs.php';
     $db = dbConnect();
     
     $query = "SELECT ID, user_id, title, content, date_created FROM `posts` ";
