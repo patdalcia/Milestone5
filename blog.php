@@ -91,7 +91,7 @@ if(isset($_POST['create'])) {
             echo '
             <p>
             <select name="catSelect"> 
-            <option value="">Select a category</option>';
+            <option value="0">Select a category</option>';
             
             foreach($catInfo as $row) {
                 $field = $row['catID'];
@@ -137,7 +137,7 @@ if(isset($_POST['create'])) {
 }
 
 
-if(isset($_POST["catSelect"])){
+if(isset($_POST["catSelect"]) && $_POST["catSelect"] != 0){
     echo 'Inside isset';
     $cat = $_POST["catSelect"];
     $query = "SELECT ID, user_id, title, content, date_created FROM `posts` WHERE catID = ?";
@@ -178,7 +178,7 @@ if(isset($_POST["catSelect"])){
             $db->close();
         }
     }
-} else if(!isset($_POST["catSelect"])){echo 'Please select a category!';}
+}// else if(!isset($_POST["catSelect"])){echo 'Please select a category!';}
 
 
 ?>
