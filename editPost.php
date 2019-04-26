@@ -1,20 +1,37 @@
 
 <?php 
-function getInfo(){
+function getInfo($switch){
+    
+    if($switch = 1){
 require 'functions/myfuncs.php';
 $db = dbConnect();
 $postID = $_POST["selectedPost"];
 
-$query = "SELECT title, content FROM posts WHERE ID = $postID";
+$query = "SELECT title FROM posts WHERE ID = $postID";
 if ($result = $db->query($query)) {
         $row = $result->fetch_assoc();
-       // $field1name = $row["title"];
+       $field1name = $row["title"];
         $db->close();
-        return $row;
+        return $field1name;
 }
 $result->free();
 $db->close();
-}
+    } else if ($switch = 2){
+        require 'functions/myfuncs.php';
+        $db = dbConnect();
+        $postID = $_POST["selectedPost"];
+        
+        $query = "SELECT content FROM posts WHERE ID = $postID";
+        if ($result = $db->query($query)) {
+            $row = $result->fetch_assoc();
+            $field1name = $row["title"];
+            $db->close();
+            return $field1name;
+        }
+        $result->free();
+        $db->close();
+    }
+} 
 ?>
 
 <!DOCTYPE html>
@@ -32,7 +49,7 @@ $db->close();
 <table style="border: 0px;"> 
 
  <tr> 
- <td>Title of Post: <input type="text" name="title" value="<?php echo 'hello'?>" maxlength="30"></td>
+ <td>Title of Post: <input type="text" name="title" value="<?php echo getInfo(1);?>" maxlength="30"></td>
  </tr>
  <tr>
  <td>Body of post: <textarea rows="4" cols="50" name="body" form="usrform">Enter text here...</textarea></td>
