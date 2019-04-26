@@ -300,7 +300,22 @@ if(isset($_POST['submitUpCat'])){
     $updatedCat =trim($_POST['upCat']);
     $updatedCatID = $_SESSION['viewCategory']; 
    
-    echo $updatedCatID;
+    if (!$updatedCatID)
+    {
+        echo '<script language="javascript">alert("Input fields were left blank! Click OK to try again.")</script>';
+        echo '<script language="javascript">location.replace("editPost.php");</script>';
+    }
+    $db = dbConnect();
+    
+    $query = "UPDATE categories SET name = ?, date = NOW() WHERE catID = ?";
+    $stmt = $db->prepare($query);
+    $stmt->bind_param('si', $updatedCat, $updatedCatID);
+    if($stmt->execute())
+    {
+        $db->close();
+        echo '<script language="javascript">alert("Category was updated succsesfully! Click ok to return to main blog page.")</script>';
+        echo '<script language="javascript">location.replace("blog.php");</script>';
+    } else { echo 'Error: Could not update category. Try a new name!';}
 }
 
 ?>
