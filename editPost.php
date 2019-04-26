@@ -32,6 +32,6 @@ function getContent(){
     $db->close();
 }
 
-echo getTitle() . getContent();
+echo getTitle();
 
 ?>
