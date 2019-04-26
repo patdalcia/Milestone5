@@ -135,7 +135,7 @@ if(isset($_POST['create'])) {
     $db->close();
 } else if (isset($_POST['editPosts'])){
 
-   echo 'Edit was clicked';
+    echo $_POST["ID"];  
 }
 
 if(isset($_POST["ChooseCat"])){
