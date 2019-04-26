@@ -21,11 +21,6 @@ $row = getInfo();
 $title = $row["title"];
 $content = $row["content"];
 
-if(isset($_POST['submitEdit'])){
-    header("location: blog.php");
-}
-
-
 ?>
 
 <!DOCTYPE html>
@@ -56,4 +51,9 @@ if(isset($_POST['submitEdit'])){
 </body>
 </html>
 
+<?php 
+if(isset($_POST['submitEdit'])){
+    header("location: blog.php");
+}
 
+?>
