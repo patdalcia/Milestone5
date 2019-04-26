@@ -39,6 +39,13 @@ for each userName and resets this number after a succesful login -->
 <ul>
 	<li><a href="logout.php">Logout</a></li>
 	<li><a href="search.php">Search</a></li>
+	<?php 
+	if($_SESSION['user_role'] = 0){
+	    echo '
+        <li><a href="blog.php">My Admin</a></li>
+    ';
+	}
+	?>
 </ul>
   
    
