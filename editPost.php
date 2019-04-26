@@ -7,9 +7,9 @@ $db = dbConnect();
 
 $query = "SELECT title FROM 'posts' WHERE ID = " . $_POST["selectedPost"];;
 $postInfo = $db->query($query);
-
+$info = $postInfo["title"];
 $db->close();
-echo $postInfo["title"];
+echo $info;
 }
 
 function getContent(){
@@ -26,5 +26,4 @@ function getContent(){
 }
 
 getTitle();
- getContent();
 ?>
