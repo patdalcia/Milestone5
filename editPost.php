@@ -40,7 +40,7 @@ $content = $row["content"];
  <td>Title of Post: <input type="text" name="title" value="<?php echo $GLOBALS['title'];?>" height="30" maxlength="30"></td>
  </tr>
  <tr>
- <td>Body of post: <textarea rows="4" cols="50" name="body" form="usrform"><?php echo $GLOBALS['content'];?></textarea></td>
+ <td>Body of post: <textarea id="editTextArea" rows="4" cols="50" name="body" form="usrform"><script>add();</script></textarea></td>
  </tr>
   <tr>
   <td><input type="submit" value="Create Post"></td>
@@ -48,4 +48,15 @@ $content = $row["content"];
  </table>
 </form>
 </body>
+<script>
+function add() {
+//We first get the current value of the textarea
+var x = document.getElementById("editTextArea").value;
+//Then we concatenate the string "content" onto it
+document.getElementById("test").value = x+ <?php $GLOBALS['content'];?>;
+}
+</script>
+
 </html>
+
+
