@@ -1,5 +1,11 @@
 
 <?php 
+
+if(isset($_POST['editPostForm'])){
+    header("location: blog.php");
+}
+
+
 function getInfo(){
     
 require 'functions/myfuncs.php';
@@ -21,6 +27,7 @@ $row = getInfo();
 $title = $row["title"];
 $content = $row["content"];
 
+
 ?>
 
 <!DOCTYPE html>
@@ -34,7 +41,7 @@ $content = $row["content"];
 <body>
 <h2>Edit post page</h2>
 
-<form action="" method="post" id="editform">
+<form action="" method="post" name="editPostForm" id="editform">
 <table style="border: 0px;"> 
 
  <tr> 
@@ -51,9 +58,4 @@ $content = $row["content"];
 </body>
 </html>
 
-<?php 
-if(isset($_POST["submitEdit"])){
-    header("location: blog.php");
-}
 
-?>
