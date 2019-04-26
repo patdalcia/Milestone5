@@ -33,5 +33,6 @@ function getContent(){
 }
 
 echo getTitle();
+echo getContent();
 
 ?>
