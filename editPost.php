@@ -1,5 +1,6 @@
 
 <?php 
+function getTitle(){
 require 'functions/myfuncs.php';
 $db = dbConnect();
 $postID = $_POST["selectedPost"];
@@ -12,12 +13,14 @@ $query = "SELECT title FROM posts WHERE ID = $postID";
 if ($result = $db->query($query)) {
     while ($row = $result->fetch_assoc()) {
         $field1name = $row["title"];
-        echo '<tr>
-                  <td>'.$field1name.'</td>
-              </tr>';
+        $db->close();
+        return $field1name;
     }
 }
-echo '</table>';
 $result->free();
 $db->close();
+}
+
+$title = getTitle();
+echo $title;
 ?>
