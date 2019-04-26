@@ -37,7 +37,7 @@ $content = $row["content"];
 <table style="border: 0px;"> 
 
  <tr> 
- <td>Title of Post: <input type="text" name="title" value="<?php echo $GLOBALS['title'];?>" maxlength="30"></td>
+ <td>Title of Post: <input type="text" name="title" value="<?php echo $GLOBALS['title'];?>" height="10"maxlength="30"></td>
  </tr>
  <tr>
  <td>Body of post: <textarea rows="4" cols="50" name="body" form="usrform"><?php echo $GLOBALS['content'];?></textarea></td>
