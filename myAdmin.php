@@ -28,6 +28,7 @@
  		  <td> <input type="submit" name="Vcategories"value="View all categories"> </td>
  		  <td> <input type="submit" name="editPosts"value="Edit your posts"> </td>
  		  <td> <input type="submit" name="VallUsers"value="View/Edit users"> </td>
+ 		  <td> <input type="submit" name="logout"value="Logout"> </td>
  	 </tr>	  
  </table>
 </form>
@@ -234,6 +235,10 @@ else if(isset($_POST['VallUsers'])){
     require_once 'functions/myfuncs.php';
     checkSessionTime();
     header("location: editUsers.php");
+}
+
+else if(isset($_POST['logout'])){
+    header("location: logout.php");
 }
 
 
