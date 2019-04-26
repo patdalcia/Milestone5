@@ -295,6 +295,7 @@ if(isset($_POST['createNewCat'])){
 
 if(isset($_POST['submitUpCat'])){
     require 'functions/myfuncs.php';
+    session_start();
     
     $updatedCat =trim($_POST['upCat']);
     $updatedCatID = $_SESSION['viewCategory']; 
