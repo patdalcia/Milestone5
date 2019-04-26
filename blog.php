@@ -141,25 +141,25 @@ if(isset($_POST['create'])) {
    
    $query = "SELECT title, ID FROM `posts` WHERE user_id=" . $_SESSION["ID"];
    $postInfo = $db->query($query);
-   
+   /*
    echo '
             <form action="editPost.php" method="post" id="ps">
             <select name="cat">
             <option value="0">Select a category</option>';
-   
+   */
    foreach($postInfo as $row) {
        
        $field = $row['ID'];
        $field1 = $row['title'];
-       echo '<option value="'. $field .'">'. $field1  .'</option>';
-       
+       //echo '<option value="'. $field .'">'. $field1  .'</option>';
+       echo $field . $field1;
    }
-   
+   /*
    echo '
                 <input type="submit" name="choosePost" value="Select Category">
                 </select>
                 </form>';
-   
+   */
    $db->close();
    
    
