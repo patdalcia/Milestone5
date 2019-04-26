@@ -260,7 +260,23 @@ if(isset($_POST['createNewCat'])){
     require 'functions/myfuncs.php';
     
     $newCat=trim($_POST['newCat']);
-    echo $newCat;
+    
+    if (!$newCat)
+    {
+        echo '<script language="javascript">alert("Input fields were left blank! Click OK to try again.")</script>';
+        echo '<script language="javascript">location.replace("blog.php");</script>';
+    }
+    $db = dbConnect();
+    
+    $query = "INSERT INTO category (name, date) VALUES (?, NOW())";
+    $stmt = $db->prepare($query);
+    $stmt->bind_param('s', $newCat);
+    if($stmt->execute())
+    {
+        $db->close();
+        echo '<script language="javascript">alert("Category was created succsesfully! Click ok to return to main blog page.")</script>';
+        echo '<script language="javascript">location.replace("blog.php");</script>';
+    } else { echo 'Error: Could create new category';}
 }
 
 ?>
