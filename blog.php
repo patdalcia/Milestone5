@@ -151,7 +151,7 @@ if(isset($_POST['create'])) {
             <option value="0">Select a Post to edit</option>';
     
     
-    foreach($catInfo as $row) {
+    foreach($postInfo as $row) {
         
         $field = $row['ID'];
         $field1 = $row['title'];
