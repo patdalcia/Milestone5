@@ -124,7 +124,7 @@ if(isset($_POST['create'])) {
     
     echo '
             <form action="" method="post" id="catView">
-            <select name="viewCat">
+            <select name="viewCategory">
             <option value="0">Select a category</option>';
     
     
@@ -224,10 +224,8 @@ if(isset($_POST["ChooseCat"])){
 if(isset($_POST['viewCat'])){
     require 'functions/myfuncs.php';
     $db = dbConnect();
-    $cat = $_POST["cat"];
-    
+    $cat = $_POST["viewCategory"];
     echo $cat;
-    echo "YA CLICKED IT";
 }
 
 ?>
