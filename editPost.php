@@ -1,8 +1,7 @@
 
 <?php 
-function getInfo($switch){
+function getInfo(){
     
-    if($switch = 1){
 require 'functions/myfuncs.php';
 $db = dbConnect();
 $postID = $_POST["selectedPost"];
@@ -10,28 +9,17 @@ $postID = $_POST["selectedPost"];
 $query = "SELECT title FROM posts WHERE ID = $postID";
 if ($result = $db->query($query)) {
         $row = $result->fetch_assoc();
-       $field1name = $row["title"];
         $db->close();
-        return $field1name;
+        return $row;
 }
 $result->free();
 $db->close();
-    } else if ($switch = 2){
-        require 'functions/myfuncs.php';
-        $db = dbConnect();
-        $postID = $_POST["selectedPost"];
-        
-        $query = "SELECT content FROM posts WHERE ID = $postID";
-        if ($result = $db->query($query)) {
-            $row = $result->fetch_assoc();
-            $field1name = $row["title"];
-            $db->close();
-            return $field1name;
-        }
-        $result->free();
-        $db->close();
-    }
-} 
+    
+}
+
+$row = getInfo();
+$title = $row["title"];
+$content = $row["content"];
 ?>
 
 <!DOCTYPE html>
@@ -49,7 +37,7 @@ $db->close();
 <table style="border: 0px;"> 
 
  <tr> 
- <td>Title of Post: <input type="text" name="title" value="<?php echo getInfo(2);?>" maxlength="30"></td>
+ <td>Title of Post: <input type="text" name="title" value="<?php echo $GLOBALS['title'];?>" maxlength="30"></td>
  </tr>
  <tr>
  <td>Body of post: <textarea rows="4" cols="50" name="body" form="usrform"></textarea></td>
