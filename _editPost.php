@@ -5,6 +5,6 @@ $title=trim($_POST['editTitle']);
 $content=trim($_POST['editContent']);
 $postID = $_SESSION['selectedPost'];
 
-echo $title . $content . $postID;
+echo $_SESSION['selectedPost'];
 
 ?>
