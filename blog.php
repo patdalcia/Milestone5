@@ -113,7 +113,7 @@ if(isset($_POST['create'])) {
     
 } else if (isset($_POST['Vcategories'])){
     require 'functions/myfuncs.php';
-    
+    sessionStart();
     $db = dbConnect();
     
     echo '<table border="0" cellspacing="2" cellpadding="2">
@@ -140,7 +140,7 @@ if(isset($_POST['create'])) {
     $field = '';
     $field1 = '';
     
-    $query = "SELECT title, ID FROM `posts` WHERE user_id =" . $_POST["ID"];
+    $query = "SELECT title, ID FROM `posts` WHERE user_id=" . $_SESSION["ID"];
     $postInfo = $db->query($query) or die('Error AGAIANAINFNN :(');
     
     
