@@ -225,7 +225,12 @@ if(isset($_POST['viewCat'])){
     require 'functions/myfuncs.php';
     $db = dbConnect();
     $cat = $_POST["viewCategory"];
-    echo $cat;
+    
+    echo '
+            <form action="" method="post">
+            <input type="submit" name="deleteCategory" value="Delete Selected Category">     
+            <input type="submit" name="deleteCategory" value="Delete Selected Category">   
+            </form>';
 }
 
 ?>
