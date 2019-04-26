@@ -27,18 +27,6 @@
  </table>
 </form>
 
-<form action="" method="post" id="showCategories">
-<table style="border: 0px;">
-<tr>
-<td> 		</td>
-<td><input type="submit" name="categories"value="View Category List"></td>
-</tr>
-
-</table>
-</form>
-<br>
-
-
 </body>
 </html>
 <?php 
