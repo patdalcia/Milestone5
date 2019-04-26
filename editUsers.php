@@ -24,10 +24,10 @@ function getUserList(){
  <td>User ID: <input type="text" name="userID" value="'. $ID .'"  maxlength="30"></td>
  </tr>
  <tr>
- <td>User ID: <input type="text" name="firstName" value="' . $firstName . '"  maxlength="30"></td>
+ <td>First Name: <input type="text" name="firstName" value="' . $firstName . '"  maxlength="30"></td>
  </tr>
  <tr>
- <td>User ID: <input type="text" name="lastName" value="' . $lastName . '"  maxlength="30"></td>
+ <td>Last Name: <input type="text" name="lastName" value="' . $lastName . '"  maxlength="30"></td>
  </tr>
  <tr>
  <td>Email Address: <input type="text" name="emailAddress" value="' . $emailAddress . '"  maxlength="30"></td>
@@ -49,7 +49,12 @@ function getUserList(){
 
 if(isset($_POST[deletePost])){
     session_start();
+    $_SESSION['userID'] = $_POST['userID'];
     $_SESSION['firstName'] = $_POST['firstName'];
+    $_SESSION['lastName'] = $_POST['lastName'];
+    $_SESSION['emailAddress'] = $_POST['emailAddress'];
+    $_SESSION['userName'] = $_POST['userName'];
+    $_SESSION['user_role'] = $_POST['user_role'];
     header("location: _editUsers.php");
 }
 
