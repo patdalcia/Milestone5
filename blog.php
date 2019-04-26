@@ -220,12 +220,14 @@ if(isset($_POST["ChooseCat"])){
         $result->free();
         $db->close();
     } 
-} elseif(isset($_POST['viewCat'])){
+} 
+if(isset($_POST['viewCat'])){
     require 'functions/myfuncs.php';
     $db = dbConnect();
     $cat = $_POST["cat"];
     
     echo $cat;
+    echo "YA CLICKED IT";
 }
 
 ?>
