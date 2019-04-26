@@ -16,6 +16,8 @@ if (!empty($_SESSION['enterTime'])) {  //Checking if user has been idle for too 
 } else {
     $_SESSION['enterTime'] = time();
 }
+
+$user_role = $_SESSION['user_role'];
 ?>
 
 <!DOCTYPE html>
@@ -40,7 +42,7 @@ for each userName and resets this number after a succesful login -->
 	<li><a href="logout.php">Logout</a></li>
 	<li><a href="search.php">Search</a></li>
 	<?php 
-	if($_SESSION['user_role'] = 0){
+	if($user_role = 0){
 	    echo '
         <li><a href="blog.php">My Admin</a></li>
     ';
