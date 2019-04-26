@@ -21,5 +21,5 @@ $db->close();
 }
 
 
-echo "The title is: " . getTitle();;
+echo getTitle();
 ?>
