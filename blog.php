@@ -228,20 +228,14 @@ if(isset($_POST["ChooseCat"])){
         $db->close();
     } 
 } 
-if(isset($_POST['viewCat'])){
-    require 'functions/myfuncs.php';
-    $db = dbConnect();
-    $cat = $_POST["viewCategory"];
-    
-    echo '
-            <form action="" method="post">
-            <table border="0" cellspacing="2" cellpadding="2">
-            <tr>
-            <td><input type="submit" name="deleteCategory" value="Delete Selected Category"></td>     
-            <td><input type="submit" name="deleteCategory" value="Delete Selected Category"></td>
-            </tr>
-            </table>   
-            </form>';
+if(isset($_POST['deleteCat'])){
+    echo 'delete was clicked';
+} else if(isset($_POST['updateCat'])){
+    echo 'update was clicked';
+} else if(isset($_POST['createCat'])){
+    echo 'create was clicked';
+} else if(isset($_POST['cancel'])){
+    echo 'cancel was clicked';
 }
 
 ?>
