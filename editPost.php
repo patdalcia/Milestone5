@@ -9,7 +9,7 @@ $query = "SELECT title FROM 'posts' WHERE ID = " . $_POST["selectedPost"];;
 $postInfo = $db->query($query);
 
 $db->close();
-return $postInfo["title"];
+echo $postInfo["title"];
 }
 
 function getContent(){
@@ -22,9 +22,9 @@ function getContent(){
     
     
     $db->close();
-    return $postInfo["content"];
+   echo $postInfo["content"];
 }
 
-echo getTitle();
-echo getContent();
+getTitle();
+ getContent();
 ?>
