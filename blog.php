@@ -134,8 +134,38 @@ if(isset($_POST['create'])) {
     $result->free();
     $db->close();
 } else if (isset($_POST['editPosts'])){
-session_start();
-    echo $_SESSION["ID"];  
+    session_start();
+    require 'functions/myfuncs.php';
+    
+    $db = dbConnect();
+    
+    $query = "SELECT title, ID FROM `posts` WHERE user_id=" . $_SESSION["ID"];
+    $postInfo = $db->query($query) or die('Error inside utility.php');
+    
+    echo '
+            <form action="editPost.php" method="post" id="ps">
+            <select name="selectedPost">
+            <option value="0">Select a post</option>';
+    
+    
+    foreach($postInfo as $row) {
+        
+        $field = $row['ID'];
+        $field1 = $row['title'];
+        //echo '<option value="' . $field . '"name="' . $field1 . '>' . $field1 . '</option>';
+        echo '<option value="'. $field .'">'. $field1  .'</option>';
+        
+    }
+    //echo '<option value="'.$row["catID"].'">'.$row["name"].'</option>';
+    
+    
+    echo '
+                <input type="submit" name="choosePost" value="Select Category">
+                </select>
+                </form>';
+    
+    $db->close();
+    
 }
 
 if(isset($_POST["ChooseCat"])){
