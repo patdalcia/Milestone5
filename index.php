@@ -18,10 +18,6 @@ if (!empty($_SESSION['enterTime'])) {  //Checking if user has been idle for too 
 }
 
 
-if($_SESSION['user_role'] = 1){
-    echo 'User is non Admin';
-} else if($_SESSION['user_role'] = 0){
-    echo 'User is Admin';
-}
+echo $_SESSION['user_role'];
 ?>
 
