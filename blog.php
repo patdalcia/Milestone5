@@ -257,7 +257,7 @@ if(isset($_POST['deleteCat'])){
             <form action="" method="post" id="createC">
             <table border="0" cellspacing="2" cellpadding="2">
             <tr>
-            <td><input type="text" name="newCat" value="Insert new Category here"  maxlength="50"></td>
+            <td><input type="text" name="newCat" value="Insert new Category here"  maxlength="100"></td>
             </tr>
             <tr>
             <td><input type="submit" name="createNewCat" value="Create"></td>
