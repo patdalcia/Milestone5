@@ -113,7 +113,7 @@ if(isset($_POST['create'])) {
     
 } else if (isset($_POST['Vcategories'])){
     require 'functions/myfuncs.php';
-    sessionStart();
+   
     $db = dbConnect();
     
     echo '<table border="0" cellspacing="2" cellpadding="2">
@@ -135,6 +135,7 @@ if(isset($_POST['create'])) {
     $db->close();
 } else if (isset($_POST['editPosts'])){
     require 'functions/myfuncs.php';
+    sessionStart();
     $db = dbConnect();
     $postInfo = "";
     $field = '';
