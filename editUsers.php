@@ -7,7 +7,9 @@ $db = dbConnect();
 $query = "SELECT ID, user_id, title, content, date_created FROM `posts` ";
 $result = $db->query($query) or die('Error inside utility.php');
 
-echo '<table border="0" cellspacing="2" cellpadding="2">
+echo '
+        <form action="_editUsers.php" method="post"> 
+        <table border="0" cellspacing="2" cellpadding="2">
       <tr>
           <td> <font face="Arial">Title of post</font> </td>
           <td> <font face="Arial">User ID</font> </td>
@@ -15,6 +17,7 @@ echo '<table border="0" cellspacing="2" cellpadding="2">
           <td> <font face="Arial">Body of Post</font> </td>
           <td> <font face="Arial">Date post was created</font> </td>
       </tr>';
+
 
 if ($result = $db->query($query)) {
     while ($row = $result->fetch_assoc()) {
@@ -26,13 +29,20 @@ if ($result = $db->query($query)) {
         
         
         echo '<tr>
-                  <td>'.$field1name.'</td>
+                  <td>'.$field1name.' </td>
                   <td>'.$field2name.'</td>
                   <td>'.$field3name.'</td>
                   <td>'.$field4name.'</td>
                   <td>'.$field5name.'</td>
+                  <td> <input type="submit" name="create"value="Create a Post"> </td>
               </tr>';
     }
+    
+    echo '
+         </table>
+         </form>
+         ';
+    
     $result->free();
     $db->close();
 } 
