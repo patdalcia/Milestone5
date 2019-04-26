@@ -22,6 +22,7 @@ $stmt->bind_param('ssi', $title, $content, $postID);
 if($stmt->execute())
 {
     $db->close();
-    header("location: blog.php");
+    echo '<script language="javascript">alert("Post was updated succsesfully! Click ok to return to main blog page.")</script>';
+    echo '<script language="javascript">location.replace("blog.php");</script>';
 } else { echo 'Error: Could not save post';}
 ?>
