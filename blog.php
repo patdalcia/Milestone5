@@ -113,23 +113,38 @@ if(isset($_POST['create'])) {
     
 } else if (isset($_POST['Vcategories'])){
     require 'functions/myfuncs.php';
-   
     $db = dbConnect();
+    $catInfo = "";
+    $field = '';
+    $field1 = '';
     
-    echo '<table border="0" cellspacing="2" cellpadding="2">
-      <tr>
-          <td> <font face="Arial">Category Name</font> </td>
-      </tr>';
+    $query = "SELECT name, catID FROM `categories` ";
+    $catInfo = $db->query($query) or die('Error AGAIANAINFNN :(');
     
-    $query = 'SELECT name FROM categories';
-    if ($result = $db->query($query)) {
-        while ($row = $result->fetch_assoc()) {
-            $field1name = $row["name"];
-            echo '<tr>
-                  <td>'.$field1name.'</td>
-              </tr>';
-        }
+    
+    echo '
+            <form action="" method="post" id="catSelect">
+            <select name="cat">
+            <option value="0">Select a category</option>';
+    
+    
+    foreach($catInfo as $row) {
+        
+        $field = $row['catID'];
+        $field1 = $row['name'];
+        //echo '<option value="' . $field . '"name="' . $field1 . '>' . $field1 . '</option>';
+        echo '<option value="'. $field .'">'. $field1  .'</option>';
+        
     }
+    //echo '<option value="'.$row["catID"].'">'.$row["name"].'</option>';
+    
+    
+    echo '
+                <input type="submit" name="ChooseCat" value="Select Category">
+                </select>
+                </form>';
+    
+    $db->close();
     echo '</table>';
     $result->free();
     $db->close();
