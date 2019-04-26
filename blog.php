@@ -276,7 +276,8 @@ if(isset($_POST['createNewCat'])){
         $db->close();
         echo '<script language="javascript">alert("Category was created succsesfully! Click ok to return to main blog page.")</script>';
         echo '<script language="javascript">location.replace("blog.php");</script>';
-    } else { echo 'Error: Could create new category';}
+    } else { echo '<script language="javascript">alert("Category not created! Try a different name.")</script>';
+    echo '<script language="javascript">location.replace("blog.php");</script>';}
 }
 
 ?>
