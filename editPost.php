@@ -50,9 +50,15 @@ $postID = $row["ID"];
  </tr>
   <tr>
   <td><input type="submit" name="submitEdit" value="Create Post"></td>
+  <td><input type="submit" name="deletePost" value="Delete Post"></td>
   </tr>
  </table>
 </form>
 </body>
 </html>
 
+<?php 
+if(isset($_POST["deletePost"])){
+    echo 'ya clicked it';
+}
+?>
