@@ -32,7 +32,7 @@ function getContent(){
     $db->close();
 }
 
-echo getTitle();
+
 echo getContent();
 
 ?>
