@@ -228,8 +228,12 @@ if(isset($_POST['viewCat'])){
     
     echo '
             <form action="" method="post">
-            <input type="submit" name="deleteCategory" value="Delete Selected Category">     
-            <input type="submit" name="deleteCategory" value="Delete Selected Category">   
+            <table border="0" cellspacing="2" cellpadding="2">
+            <tr>
+            <td><input type="submit" name="deleteCategory" value="Delete Selected Category"></td>     
+            <td><input type="submit" name="deleteCategory" value="Delete Selected Category"></td>
+            </tr>
+            </table>   
             </form>';
 }
 
