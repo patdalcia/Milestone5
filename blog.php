@@ -268,7 +268,7 @@ if(isset($_POST['createNewCat'])){
     }
     $db = dbConnect();
     
-    $query = "INSERT INTO category (name, date) VALUES (?, NOW())";
+    $query = "INSERT INTO categories (name, date) VALUES (?, NOW())";
     $stmt = $db->prepare($query);
     $stmt->bind_param('s', $newCat);
     if($stmt->execute())
