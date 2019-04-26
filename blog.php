@@ -292,7 +292,11 @@ if(isset($_POST['createNewCat'])){
 }
 
 if(isset($_POST['submitUpCat'])){
-    echo 'Ya clicked it';
+    require 'functions/myfuncs.php';
+    
+    $updatedCat =trim($_POST['upCat']);
+   
+    echo $updatedCat;
 }
 
 ?>
