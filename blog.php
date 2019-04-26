@@ -124,6 +124,8 @@ if(isset($_POST['create'])) {
     
     echo '
             <form action="" method="post" id="catView">
+            <table border="0" cellspacing="2" cellpadding="2"
+            <tr>
             <select name="viewCategory">
             <option value="0">Select a category</option>';
     
@@ -136,14 +138,16 @@ if(isset($_POST['create'])) {
         echo '<option value="'. $field .'">'. $field1  .'</option>';
         
     }
-    //echo '<option value="'.$row["catID"].'">'.$row["name"].'</option>';
     
+    echo '</tr>';
     
-    echo '
-                <input type="submit" name="deleteCat" value="Delete selected category">
-                <input type="submit" name="updateCat" value="Update selected category">
-                <input type="submit" name="createCat" value="Create new category">
-                <input type="submit" name="cancel" value="Cancel">
+    echo '      <tr>
+                <td><input type="submit" name="deleteCat" value="Delete selected category"></td>
+                <td><input type="submit" name="updateCat" value="Update selected category"></td>
+                <td><input type="submit" name="createCat" value="Create new category"></td>
+                <td><input type="submit" name="cancel" value="Cancel"></td>
+                </tr>
+                </form>
                 </select>
                 </form>';
     
