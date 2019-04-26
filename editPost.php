@@ -34,6 +34,6 @@ function getContent(){
 
 
 $info = getTitle();
-echo $info["title"];
+echo $info["title"] . $info["content"];
 
 ?>
