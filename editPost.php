@@ -6,7 +6,7 @@ require 'functions/myfuncs.php';
 $db = dbConnect();
 $postID = $_POST["selectedPost"];
 
-$query = "SELECT title FROM posts WHERE ID = $postID";
+$query = "SELECT title, content FROM posts WHERE ID = $postID";
 if ($result = $db->query($query)) {
         $row = $result->fetch_assoc();
         $db->close();
@@ -37,7 +37,7 @@ $content = $row["content"];
 <table style="border: 0px;"> 
 
  <tr> 
- <td>Title of Post: <input type="text" name="title" value="<?php echo $GLOBALS['title']; echo $GLOBALS['content'];?>" height="30" maxlength="30"></td>
+ <td>Title of Post: <input type="text" name="title" value="<?php echo $GLOBALS['content'];?>" height="30" maxlength="30"></td>
  </tr>
  <tr>
  <td>Body of post: <textarea id="editTextArea" rows="4" cols="50" name="body" form="usrform"></textarea></td>
