@@ -13,7 +13,7 @@ if (!$title || !$content)
 }
 $db = dbConnect();
 session_start();
-echo 'Made connections and session';
+
 
 
 $query = "UPDATE posts SET title = ?, content= ? WHERE ID = ?";
