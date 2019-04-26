@@ -44,7 +44,7 @@ for each userName and resets this number after a succesful login -->
 <ul>
 	<li><a href="logout.php">Logout</a></li>
 	<li><a href="search.php">Search</a></li>
-    <li><a href="blog.php">My admin page</a></li>
+    <li><a href="myAdmin.php">My admin page</a></li>
 </ul>
   
    
