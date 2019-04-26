@@ -34,7 +34,8 @@ if ($result = $db->query($query)) {
                   <td>'.$field3name.'</td>
                   <td>'.$field4name.'</td>
                   <td>'.$field5name.'</td>
-                  <td> <input type="submit" name="create"value="Create a Post"> </td>
+                  <td> <input type="submit" name="editUser"value="Edit this user"> </td>
+                  <td> <input type="submit" name="deleteUser"value="Delete this user"> </td>
               </tr>';
     }
     
@@ -47,5 +48,7 @@ if ($result = $db->query($query)) {
     $db->close();
 } 
 
-
+if(isset($_POST['deleteUser'])){
+    header("location: myAdmin.php");
+}
 ?>
