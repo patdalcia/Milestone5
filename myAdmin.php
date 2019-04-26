@@ -40,9 +40,20 @@
 
 
 <?php
+
+/*
+ * script to create new blog post
+ * 
+ * 
+ */
 if(isset($_POST['create'])) {
     header('location: createPost.php');
-} else if(isset($_POST['VallPosts'])){
+} 
+
+/*
+ * Script to view all posts
+ */
+else if(isset($_POST['VallPosts'])){
     require 'functions/myfuncs.php';
     $db = dbConnect();
     
@@ -79,7 +90,12 @@ if(isset($_POST['create'])) {
         $db->close();
     } 
     
-} else if (isset($_POST['VpostsByCategories'])){
+} 
+
+/*
+ * Script to view all post by desired category
+ */
+else if (isset($_POST['VpostsByCategories'])){
     require 'functions/myfuncs.php';
     $db = dbConnect();
     $catInfo = "";
@@ -114,7 +130,13 @@ if(isset($_POST['create'])) {
        
         $db->close();
     
-} else if (isset($_POST['Vcategories'])){
+} 
+
+/*
+ * 
+ * Script to View all categories
+ */
+else if (isset($_POST['Vcategories'])){
     require 'functions/myfuncs.php';
     $db = dbConnect();
     $catInfo = "";
@@ -158,7 +180,13 @@ if(isset($_POST['create'])) {
     echo '</table>';
     $result->free();
     $db->close();
-} else if (isset($_POST['editPosts'])){
+} 
+
+/*
+ * 
+ * Script to edit posts
+ */
+else if (isset($_POST['editPosts'])){
     session_start();
     require 'functions/myfuncs.php';
     
@@ -191,9 +219,23 @@ if(isset($_POST['create'])) {
     
     $db->close();
     
-} else if(isset($_POST['VallUsers'])){
-    echo 'Button was clicked';
+} 
+
+/*
+ * 
+ * Script to View all users
+ */
+else if(isset($_POST['VallUsers'])){
+    header("location: editUsers.php");
 }
+
+
+/*
+ * Button listeners for editing and viewing categories
+ * 
+ * 
+ */
+
 
 if(isset($_POST["ChooseCat"])){
     require 'functions/myfuncs.php';
