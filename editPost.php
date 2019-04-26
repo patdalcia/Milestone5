@@ -5,12 +5,12 @@ require 'functions/myfuncs.php';
 $db = dbConnect();
 $postID = $_POST["selectedPost"];
 
-$query = "SELECT title FROM posts WHERE ID = $postID";
+$query = "SELECT title, content FROM posts WHERE ID = $postID";
 if ($result = $db->query($query)) {
         $row = $result->fetch_assoc();
-        $field1name = $row["title"];
+       // $field1name = $row["title"];
         $db->close();
-        return $field1name;
+        return $row;
 }
 $result->free();
 $db->close();
@@ -33,6 +33,7 @@ function getContent(){
 }
 
 
-echo getContent();
+$info = getTitle();
+echo $info["title"];
 
 ?>
