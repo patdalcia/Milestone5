@@ -36,14 +36,14 @@ $content = $row["content"];
 <body>
 <h2>Edit post page</h2>
 
-<form action="_editPost.php" method="post" name="editPostForm" id="editform">
+<form action="_editPost.php" method="post" id="editform">
 <table style="border: 0px;"> 
 
  <tr> 
  <td>Title of Post: <input type="text" name="editTitle" value="<?php echo $GLOBALS['title'];?>"  maxlength="30"></td>
  </tr>
  <tr>
- <td>Body of post: <textarea rows="4" cols="50" name="editContent" form="editPostForm"><?php echo $GLOBALS['content'];?></textarea></td>
+ <td>Body of post: <textarea rows="4" cols="50" name="editContent" form="editform"><?php echo $GLOBALS['content'];?></textarea></td>
  </tr>
   <tr>
   <td><input type="submit" name="submitEdit" value="Create Post"></td>
