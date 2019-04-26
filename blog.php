@@ -235,6 +235,8 @@ if(isset($_POST['deleteCat'])){
     $query = "DELETE FROM `categories` WHERE `catID` = " . $catid;
     $db->query($query) or die("Error: Could not delete post");
     $db->close();
+    echo '<script language="javascript">alert("Post was deleted succsesfully! Click ok to return to main blog page.")</script>';
+    echo '<script language="javascript">location.replace("blog.php");</script>';
 } else if(isset($_POST['updateCat'])){
     echo 'update was clicked';
 } else if(isset($_POST['createCat'])){
