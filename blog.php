@@ -229,13 +229,18 @@ if(isset($_POST["ChooseCat"])){
     } 
 } 
 if(isset($_POST['deleteCat'])){
-    echo 'delete was clicked';
+    require_once 'functions/myfuncs.php';
+    $db = dbConnect();
+    $catid = $_POST['viewCategory'];
+    $query = "DELETE FROM `categories` WHERE `catID` = " . $catid;
+    $db->query($query) or die("Error: Could not delete post");
+    $db->close();
 } else if(isset($_POST['updateCat'])){
     echo 'update was clicked';
 } else if(isset($_POST['createCat'])){
     echo 'create was clicked';
 } else if(isset($_POST['cancel'])){
-    echo 'cancel was clicked';
+    header("location: blog.php");
 }
 
 ?>
