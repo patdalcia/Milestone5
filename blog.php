@@ -134,7 +134,7 @@ if(isset($_POST['create'])) {
     $result->free();
     $db->close();
 } else if (isset($_POST['editPosts'])){
-
+session_start();
     echo $_SESSION["ID"];  
 }
 
