@@ -8,8 +8,8 @@ $db = dbConnect();
 $query = "SELECT title FROM 'posts' WHERE ID = " . $_POST["selectedPost"];;
 $postInfo = $db->query($query);
 
-echo $postInfo["title"];
 $db->close();
+return $postInfo["title"];
 }
 
 function getContent(){
@@ -20,8 +20,9 @@ function getContent(){
     $query = "SELECT content FROM 'posts' WHERE ID = " . $_POST["selectedPost"];;
     $postInfo = $db->query($query);
     
-    echo $postInfo["content"];
+    
     $db->close();
+    return $postInfo["content"];
 }
 ?>
 
@@ -42,14 +43,11 @@ function getContent(){
 <table style="border: 0px;"> 
 
  <tr> 
- <td>Title of Post: <input type="text" name="title" value="<?php getTitle();?>"  maxlength="30"></td>
+ <td>Title of Post: <input type="text" name="title" value="<?php $title = getTitle();?>"  maxlength="30"></td>
  </tr>
  <tr>
- <td>Body of post: <textarea rows="4" cols="50" name="body" form="usrform"><?php getContent();?></textarea></td>
+ <td>Body of post: <textarea rows="4" cols="50" name="body" form="usrform"><?php $content = getContent();?></textarea></td>
  </tr>
-  <tr> 
- 	<td><?php selectBox()?></td>
-  </tr>
   <tr>
   <td><input type="submit" value="Create Post"></td>
   </tr>
