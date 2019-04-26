@@ -21,6 +21,7 @@
                 $stmt->bind_param('ssis', $title, $body, $_SESSION['ID'], $category);
                 if($stmt->execute())
                 {
+                    $db->close();
                     header("location: blog.php");
                 } else { echo 'Error: Could not save post';}
             

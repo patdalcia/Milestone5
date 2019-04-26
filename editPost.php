@@ -40,10 +40,10 @@ $content = $row["content"];
 <table style="border: 0px;"> 
 
  <tr> 
- <td>Title of Post: <input type="text" name="title" value="<?php echo $GLOBALS['title'];?>" height="30" maxlength="30"></td>
+ <td>Title of Post: <input type="text" name="editTitle" value="<?php echo $GLOBALS['title'];?>" height="30" maxlength="30"></td>
  </tr>
  <tr>
- <td>Body of post: <textarea id="editTextArea" rows="4" cols="50" name="body" form="usrform"><?php echo $GLOBALS['content'];?></textarea></td>
+ <td>Body of post: <textarea id="editTextArea" rows="4" cols="50" name="editContent" form="usrform"><?php echo $GLOBALS['content'];?></textarea></td>
  </tr>
   <tr>
   <td><input type="submit" name="submitEdit" value="Create Post"></td>
