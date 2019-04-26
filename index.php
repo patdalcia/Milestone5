@@ -26,7 +26,7 @@ for each userName and resets this number after a succesful login -->
 <title>Login page</title>
 </head>
 <body>
-<h1>Index</h1>
+<h1>Welcome ' . $_SESSION['username'] .'</h1>
 
 <ul>
 	<li><a href="logout.php">Logout</a></li>
@@ -61,7 +61,7 @@ for each userName and resets this number after a succesful login -->
 <title>Login page</title>
 </head>
 <body>
-<h1>Index</h1>
+<h1>Welcome ' . $_SESSION['username'] .'</h1>
 
 <ul>
 	<li><a href="logout.php">Logout</a></li>
