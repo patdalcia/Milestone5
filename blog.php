@@ -238,7 +238,18 @@ if(isset($_POST['deleteCat'])){
     echo '<script language="javascript">alert("Post was deleted succsesfully! Click ok to return to main blog page.")</script>';
     echo '<script language="javascript">location.replace("blog.php");</script>';
 } else if(isset($_POST['updateCat'])){
-    echo 'update was clicked';
+    echo '
+            <form action="" method="post" id="updateC">
+            <table border="0" cellspacing="2" cellpadding="2">
+            <tr>
+            <td><input type="text" name="upCat" value="Insert updated Category name here"  maxlength="70"></td>
+            </tr>
+            <tr>
+            <td><input type="submit" name="submitUpCat" value="Update"></td>
+            </tr>
+            </table>
+            </form>
+';
 } else if(isset($_POST['createCat'])){
     echo '
             <form action="" method="post" id="createC">
@@ -278,6 +289,10 @@ if(isset($_POST['createNewCat'])){
         echo '<script language="javascript">location.replace("blog.php");</script>';
     } else { echo '<script language="javascript">alert("Category not created! Try a different name.")</script>';
     echo '<script language="javascript">location.replace("blog.php");</script>';}
+}
+
+if(isset($_POST['submitUpCat'])){
+    echo 'Ya clicked it';
 }
 
 ?>
