@@ -52,7 +52,7 @@ $db->close();
  <td>Title of Post: <input type="text" name="title" value="<?php echo getInfo(1);?>" maxlength="30"></td>
  </tr>
  <tr>
- <td>Body of post: <textarea rows="4" cols="50" name="body" form="usrform">Enter text here...</textarea></td>
+ <td>Body of post: <textarea rows="4" cols="50" name="body" form="usrform"><?php echo getInfo(2);?></textarea></td>
  </tr>
   <tr>
   <td><input type="submit" value="Create Post"></td>
