@@ -1,6 +1,6 @@
 
 <?php 
+$postID = $_POST["selectedPost"];
 
-echo "INside editPost";
-
+echo $postID;
 ?>
