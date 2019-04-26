@@ -20,7 +20,7 @@ if (!empty($_SESSION['enterTime'])) {  //Checking if user has been idle for too 
 $user_role = $_SESSION['user_role'];
 
 
-if($user_role = 0){
+if($user_role == 0){
     
     echo '
              <!DOCTYPE html>
@@ -55,7 +55,7 @@ for each userName and resets this number after a succesful login -->
 
          ';
     
-}else if($user_role = 1){
+}else if($user_role == 1){
     
     echo '
         <!DOCTYPE html>
