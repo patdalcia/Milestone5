@@ -1,7 +1,4 @@
-<?php 
-require_once 'functions/myfuncs.php';
-checkSessionTime(); //Checks if session has timed out
-?>
+
 
 <!DOCTYPE html>
 <html>
