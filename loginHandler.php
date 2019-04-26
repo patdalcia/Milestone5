@@ -58,6 +58,7 @@ for each userName and resets this number after a succesful login -->
 	                    $_SESSION['ID'] = $id;
 	                    $_SESSION['password'] = $password;
 	                    $_SESSION['user_role'] = $user_role;
+	                    $_SESSION['username'] = $username;
 	                    $stmt->free_result();
 	                    $db->close();
 	                    if (isset($_COOKIE['login'])) {
