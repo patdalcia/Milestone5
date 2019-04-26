@@ -52,7 +52,7 @@ $content = $row["content"];
 </html>
 
 <?php 
-if(isset($_POST['submitEdit'])){
+if(isset($_POST["submitEdit"])){
     header("location: blog.php");
 }
 
