@@ -1,34 +1,5 @@
 
-<?php 
 
-if(isset($_POST['editPostForm'])){
-    header("location: blog.php");
-}
-
-
-function getInfo(){
-    
-require 'functions/myfuncs.php';
-$db = dbConnect();
-$postID = $_POST["selectedPost"];
-
-$query = "SELECT title, content FROM posts WHERE ID = $postID";
-if ($result = $db->query($query)) {
-        $row = $result->fetch_assoc();
-        $db->close();
-        return $row;
-}
-$result->free();
-$db->close();
-    
-}
-
-$row = getInfo();
-$title = $row["title"];
-$content = $row["content"];
-
-
-?>
 
 <!DOCTYPE html>
 <html>
@@ -59,3 +30,33 @@ $content = $row["content"];
 </html>
 
 
+<?php 
+
+if(isset($_POST['editPostForm'])){
+    header("location: blog.php");
+}
+
+
+function getInfo(){
+    
+require 'functions/myfuncs.php';
+$db = dbConnect();
+$postID = $_POST["selectedPost"];
+
+$query = "SELECT title, content FROM posts WHERE ID = $postID";
+if ($result = $db->query($query)) {
+        $row = $result->fetch_assoc();
+        $db->close();
+        return $row;
+}
+$result->free();
+$db->close();
+    
+}
+
+$row = getInfo();
+$title = $row["title"];
+$content = $row["content"];
+
+
+?>
