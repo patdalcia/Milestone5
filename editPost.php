@@ -2,7 +2,7 @@
 <?php 
 
 function getInfo(){
-    
+
 require 'functions/myfuncs.php';
 $db = dbConnect();
 $postID = $_POST["selectedPost"];
@@ -44,6 +44,9 @@ $content = $row["content"];
  </tr>
  <tr>
  <td>Body of post: <textarea rows="4" cols="50" name="editContent" form="editform"><?php echo $GLOBALS['content'];?></textarea></td>
+ </tr>
+ <tr>
+ <td><input type="hidden" name="postID" value="<?php $_POST["selectedPost"];?>"></td>
  </tr>
   <tr>
   <td><input type="submit" name="submitEdit" value="Create Post"></td>
