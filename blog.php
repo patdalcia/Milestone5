@@ -140,7 +140,10 @@ if(isset($_POST['create'])) {
     
     
     echo '
-                <input type="submit" name="viewCat" value="Select Category">
+                <input type="submit" name="deleteCat" value="Delete selected category">
+                <input type="submit" name="updateCat" value="Update selected category">
+                <input type="submit" name="createCat" value="Create new category">
+                <input type="submit" name="cancel" value="Cancel">
                 </select>
                 </form>';
     
