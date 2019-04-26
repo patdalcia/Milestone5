@@ -7,7 +7,7 @@ require 'functions/myfuncs.php';
 $db = dbConnect();
 $postID = $_POST["selectedPost"];
 
-$query = "SELECT title, content FROM posts WHERE ID = $postID";
+$query = "SELECT ID, title, content FROM posts WHERE ID = $postID";
 if ($result = $db->query($query)) {
         $row = $result->fetch_assoc();
         $db->close();
@@ -21,7 +21,7 @@ $db->close();
 $row = getInfo();
 $title = $row["title"];
 $content = $row["content"];
-
+$postID = $row["ID"];
 
 ?>
 
@@ -46,7 +46,7 @@ $content = $row["content"];
  <td>Body of post: <textarea rows="4" cols="50" name="editContent" form="editform"><?php echo $GLOBALS['content'];?></textarea></td>
  </tr>
  <tr>
- <td><input type="hidden" name="postID" value="<?php $_POST["selectedPost"];?>"></td>
+ <td><input type="hidden" name="postID" value="<?php $GLOBALS['postID'];?>"></td>
  </tr>
   <tr>
   <td><input type="submit" name="submitEdit" value="Create Post"></td>
