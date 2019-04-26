@@ -123,8 +123,8 @@ if(isset($_POST['create'])) {
     
     
     echo '
-            <form action="" method="post" id="catSelect">
-            <select name="cat">
+            <form action="" method="post" id="catView">
+            <select name="viewCat">
             <option value="0">Select a category</option>';
     
     
@@ -140,7 +140,7 @@ if(isset($_POST['create'])) {
     
     
     echo '
-                <input type="submit" name="ChooseCat" value="Select Category">
+                <input type="submit" name="viewCat" value="Select Category">
                 </select>
                 </form>';
     
@@ -220,6 +220,12 @@ if(isset($_POST["ChooseCat"])){
         $result->free();
         $db->close();
     } 
+} elseif(isset($_POST['viewCat'])){
+    require 'functions/myfuncs.php';
+    $db = dbConnect();
+    $cat = $_POST["cat"];
+    
+    echo $cat;
 }
 
 ?>
