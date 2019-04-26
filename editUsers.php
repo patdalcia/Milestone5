@@ -49,6 +49,6 @@ if ($result = $db->query($query)) {
 } 
 
 if(isset($_POST['deleteUser'])){
-    header("location: myAdmin.php");
+    header("location: _editUsers.php");
 }
 ?>

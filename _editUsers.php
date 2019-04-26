@@ -1,6 +1,7 @@
 <?php
 function getUserList(){
     require_once 'functions/myfuncs.php';
+    checkSessionTime();
     $db = dbConnect();
     $row = "";
     
@@ -44,6 +45,10 @@ function getUserList(){
  </table>
 </form> ';
     }
+}
+
+if(isset($_POST[deletePost])){
+    
 }
 
 ?>
