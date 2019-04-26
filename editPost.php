@@ -20,6 +20,12 @@ $db->close();
 $row = getInfo();
 $title = $row["title"];
 $content = $row["content"];
+
+if(isset($_POST['submitEdit'])){
+    header("location: blog.php");
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -43,7 +49,7 @@ $content = $row["content"];
  <td>Body of post: <textarea id="editTextArea" rows="4" cols="50" name="body" form="usrform"><?php echo $GLOBALS['content'];?></textarea></td>
  </tr>
   <tr>
-  <td><input type="submit" value="Create Post"></td>
+  <td><input type="submit" name="submitEdit" value="Create Post"></td>
   </tr>
  </table>
 </form>
