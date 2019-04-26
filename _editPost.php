@@ -2,7 +2,16 @@
 require 'functions/myfuncs.php';
 
 if(isset($_POST['deletePost'])){
-    echo 'ya clicked it';
+    $postID = $_POST['postID'];
+    
+    require_once 'functions/myfuncs.php';
+    $db = dbConnect();
+    $query = "DELETE FROM `posts` WHERE `ID` = " . $postID;
+    $db->query($query) or die("Error: Could not delete post");
+    $db->close();
+    echo '<script language="javascript">alert("Category was deleted succsesfully! Click ok to return to main blog page.")</script>';
+    echo '<script language="javascript">location.replace("blog.php");</script>';
+    
 } else if(isset($_POST['submitEdit'])){
 
 $title=trim($_POST['editTitle']);

@@ -49,7 +49,7 @@ $postID = $row["ID"];
  <td><input type="hidden" name="postID" value="<?php echo $GLOBALS['postID'];?>"></td>
  </tr>
   <tr>
-  <td><input type="submit" name="submitEdit" value="Create Post"></td>
+  <td><input type="submit" name="submitEdit" value="Update Post"></td>
   <td><input type="submit" name="deletePost" value="Delete Post"></td>
   </tr>
  </table>
@@ -57,8 +57,4 @@ $postID = $row["ID"];
 </body>
 </html>
 
-<?php 
-if(isset($_POST["deletePost"])){
-    echo 'ya clicked it';
-}
-?>
+
