@@ -20,7 +20,7 @@ $user_role = $_SESSION['user_role'];
     {
         $db->close();
         echo '<script language="javascript">alert("Post was updated succsesfully! Click ok to return to main blog page.")</script>';
-        echo '<script language="javascript">location.replace("blog.php");</script>';
+        echo '<script language="javascript">location.replace("myAdmin.php");</script>';
     } else { echo 'Error: Could not save post';}
     
 
