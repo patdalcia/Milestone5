@@ -143,9 +143,26 @@ if(isset($_POST['create'])) {
    $postInfo = $db->query($query);
    
    echo '
-            <form action="" method="post" id="catSelect">
+            <form action="editPost.php" method="post" id="ps">
             <select name="cat">
             <option value="0">Select a category</option>';
+   
+   foreach($postInfo as $row) {
+       
+       $field = $row['ID'];
+       $field1 = $row['title'];
+       echo '<option value="'. $field .'">'. $field1  .'</option>';
+       
+   }
+   
+   echo '
+                <input type="submit" name="choosePost" value="Select Category">
+                </select>
+                </form>';
+   
+   $db->close();
+   
+   
 }
 
 if(isset($_POST["ChooseCat"])){
