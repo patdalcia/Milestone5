@@ -219,7 +219,7 @@ else if (isset($_POST['editPosts'])){
     
     
     echo '
-                <input type="submit" name="choosePost" value="Select Category">
+                <input type="submit" name="choosePost" value="Select Post">
                 </select>
                 </form>';
     
