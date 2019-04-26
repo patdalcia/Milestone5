@@ -238,6 +238,8 @@ if(isset($_POST['deleteCat'])){
     echo '<script language="javascript">alert("Post was deleted succsesfully! Click ok to return to main blog page.")</script>';
     echo '<script language="javascript">location.replace("blog.php");</script>';
 } else if(isset($_POST['updateCat'])){
+        session_start();
+        $_SESSION['viewCategory'] = $_POST['viewCategory'];
     echo '
             <form action="" method="post" id="updateC">
             <table border="0" cellspacing="2" cellpadding="2">
@@ -295,8 +297,9 @@ if(isset($_POST['submitUpCat'])){
     require 'functions/myfuncs.php';
     
     $updatedCat =trim($_POST['upCat']);
-    
-    echo $_POST['viewCategory'];
+    $updatedCatID = $_SESSION['viewCategory']; 
+   
+    echo $updatedCatID;
 }
 
 ?>
