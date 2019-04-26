@@ -21,7 +21,7 @@ function getUserList(){
 <table style="border: 0px;">
             
  <tr>
- <td>User ID: <input type="hidden" name="userID" value="'. $ID .'"  maxlength="30"></td>
+ <td><input type="hidden" name="userID" value="'. $ID .'"  maxlength="30"></td>
  </tr>
  <tr>
  <td>First Name: <input type="text" name="firstName" value="' . $firstName . '"  maxlength="30"></td>
