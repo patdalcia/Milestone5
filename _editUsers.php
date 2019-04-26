@@ -48,7 +48,7 @@ function getUserList(){
 }
 
 if(isset($_POST[deletePost])){
-    
+    header("location: myAdmin.php");
 }
 
 ?>
