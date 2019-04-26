@@ -8,7 +8,7 @@ $query = "SELECT ID, user_id, title, content, date_created FROM `posts` ";
 $result = $db->query($query) or die('Error inside utility.php');
 
 echo '
-        <form action="_editUsers.php" method="post"> 
+        <form action="" method="post"> 
         <table border="0" cellspacing="2" cellpadding="2">
       <tr>
           <td> <font face="Arial">Title of post</font> </td>
