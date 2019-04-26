@@ -46,7 +46,7 @@ $postID = $row["ID"];
  <td>Body of post: <textarea rows="4" cols="50" name="editContent" form="editform"><?php echo $GLOBALS['content'];?></textarea></td>
  </tr>
  <tr>
- <td><input type="text" name="postID" value="<?php echo $GLOBALS['postID'];?>"></td>
+ <td><input type="hidden" name="postID" value="<?php echo $GLOBALS['postID'];?>"></td>
  </tr>
   <tr>
   <td><input type="submit" name="submitEdit" value="Create Post"></td>
