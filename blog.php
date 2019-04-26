@@ -295,8 +295,8 @@ if(isset($_POST['submitUpCat'])){
     require 'functions/myfuncs.php';
     
     $updatedCat =trim($_POST['upCat']);
-   
-    echo $updatedCat;
+    
+    echo $_POST['viewCategory'];
 }
 
 ?>
