@@ -19,6 +19,7 @@
           <td> <font face="Arial">View all posts for specific category</font> </td> 
           <td> <font face="Arial">View all categories</font> </td> 
           <td> <font face="Arial">Edit your posts</font> </td> 
+          <td> <font face="Arial">View/edit All users</font> </td>
       </tr>
       <tr>
  		  <td> <input type="submit" name="create"value="Create a Post"> </td>
@@ -26,6 +27,7 @@
  		  <td> <input type="submit" name="VpostsByCategories"value="View all posts by categories"> </td>
  		  <td> <input type="submit" name="Vcategories"value="View all categories"> </td>
  		  <td> <input type="submit" name="editPosts"value="Edit your posts"> </td>
+ 		  <td> <input type="submit" name="VallUsers"value="View/Edit users"> </td>
  	 </tr>	  
  </table>
 </form>
@@ -189,6 +191,8 @@ if(isset($_POST['create'])) {
     
     $db->close();
     
+} else if(isset($_POST['VallUsers'])){
+    echo 'Button was clicked';
 }
 
 if(isset($_POST["ChooseCat"])){
