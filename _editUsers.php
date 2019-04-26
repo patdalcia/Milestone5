@@ -9,5 +9,5 @@ $emailAddress = $_SESSION['emailAddress'];
 $userName = $_SESSION['userName'];
 $user_role = $_SESSION['user_role'];
 
-echo $userID . $firstName . $lastName . $emailAddress . $userName . $user_role;
+
 ?>

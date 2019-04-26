@@ -48,6 +48,17 @@ function getUserList(){
 }
 
 if(isset($_POST[deletePost])){
+    require_once 'functions/myfuncs.php';
+    checkSessionTime();
+    $db = dbConnect();
+    $userID = $_POST['userID'];
+    $query = "DELETE FROM `users` WHERE `ID` = " . $userID;
+    $db->query($query) or die("Error: Could not delete user");
+    $db->close();
+    echo '<script language="javascript">alert("User was deleted succsesfully! Click ok to return to Admin Page.")</script>';
+    echo '<script language="javascript">location.replace("myAdmin.php");</script>';
+    
+} else if(isset($_POST['editUser'])){
     session_start();
     $_SESSION['userID'] = $_POST['userID'];
     $_SESSION['firstName'] = $_POST['firstName'];
