@@ -43,10 +43,10 @@ function getContent(){
 <table style="border: 0px;"> 
 
  <tr> 
- <td>Title of Post: <input type="text" name="title" value="<?php $title = getTitle();?>"  maxlength="30"></td>
+ <td>Title of Post: <input type="text" name="title" value="<?php echo getTitle();?>"  maxlength="30"></td>
  </tr>
  <tr>
- <td>Body of post: <textarea rows="4" cols="50" name="body" form="usrform"><?php $content = getContent();?></textarea></td>
+ <td>Body of post: <textarea rows="4" cols="50" name="body" form="usrform"><?php echo getContent();?></textarea></td>
  </tr>
   <tr>
   <td><input type="submit" value="Create Post"></td>
