@@ -47,6 +47,8 @@
  * 
  */
 if(isset($_POST['create'])) {
+    require 'functions/myfuncs.php';
+    checkSessionTime();
     header('location: createPost.php');
 } 
 
@@ -55,6 +57,7 @@ if(isset($_POST['create'])) {
  */
 else if(isset($_POST['VallPosts'])){
     require 'functions/myfuncs.php';
+    checkSessionTime();
     $db = dbConnect();
     
     $query = "SELECT ID, user_id, title, content, date_created FROM `posts` ";
@@ -97,6 +100,7 @@ else if(isset($_POST['VallPosts'])){
  */
 else if (isset($_POST['VpostsByCategories'])){
     require 'functions/myfuncs.php';
+    checkSessionTime();
     $db = dbConnect();
     $catInfo = "";
     $field = '';
@@ -138,6 +142,7 @@ else if (isset($_POST['VpostsByCategories'])){
  */
 else if (isset($_POST['Vcategories'])){
     require 'functions/myfuncs.php';
+    checkSessionTime();
     $db = dbConnect();
     $catInfo = "";
     $field = '';
@@ -189,7 +194,7 @@ else if (isset($_POST['Vcategories'])){
 else if (isset($_POST['editPosts'])){
     session_start();
     require 'functions/myfuncs.php';
-    
+    checkSessionTime();
     $db = dbConnect();
     
     $query = "SELECT title, ID FROM `posts` WHERE user_id=" . $_SESSION["ID"];
@@ -226,6 +231,8 @@ else if (isset($_POST['editPosts'])){
  * Script to View all users
  */
 else if(isset($_POST['VallUsers'])){
+    require_once 'functions/myfuncs.php';
+    checkSessionTime();
     header("location: editUsers.php");
 }
 
@@ -239,6 +246,7 @@ else if(isset($_POST['VallUsers'])){
 
 if(isset($_POST["ChooseCat"])){
     require 'functions/myfuncs.php';
+    checkSessionTime();
     $db = dbConnect();
     $cat = $_POST["cat"];
     
@@ -277,6 +285,7 @@ if(isset($_POST["ChooseCat"])){
 } 
 if(isset($_POST['deleteCat'])){
     require_once 'functions/myfuncs.php';
+    checkSessionTime();
     $db = dbConnect();
     $catid = $_POST['viewCategory'];
     $query = "DELETE FROM `categories` WHERE `catID` = " . $catid;
@@ -285,6 +294,8 @@ if(isset($_POST['deleteCat'])){
     echo '<script language="javascript">alert("Category was deleted succsesfully! Click ok to return to main admin page.")</script>';
     echo '<script language="javascript">location.replace("myAdmin.php");</script>';
 } else if(isset($_POST['updateCat'])){
+    require_once 'functions/myfuncs.php';
+        checkSessionTime();
         session_start();
         $_SESSION['viewCategory'] = $_POST['viewCategory'];
     echo '
@@ -300,6 +311,8 @@ if(isset($_POST['deleteCat'])){
             </form>
 ';
 } else if(isset($_POST['createCat'])){
+    require_once 'functions/myfuncs.php';
+    checkSessionTime();
     echo '
             <form action="" method="post" id="createC">
             <table border="0" cellspacing="2" cellpadding="2">
@@ -313,12 +326,14 @@ if(isset($_POST['deleteCat'])){
             </form>
 ';
 } else if(isset($_POST['cancel'])){
+    require_once 'functions/myfuncs.php';
+    checkSessionTime();
     header("location: blog.php");
 }
 
 if(isset($_POST['createNewCat'])){
     require 'functions/myfuncs.php';
-    
+    checkSessionTime();
     $newCat=trim($_POST['newCat']);
     
     if (!$newCat)
@@ -342,6 +357,7 @@ if(isset($_POST['createNewCat'])){
 
 if(isset($_POST['submitUpCat'])){
     require 'functions/myfuncs.php';
+    checkSessionTime();
     session_start();
     
     $updatedCat =trim($_POST['upCat']);
