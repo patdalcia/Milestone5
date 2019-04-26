@@ -1,54 +1,74 @@
-<?php 
-require 'functions/myfuncs.php';
-checkSessionTime();
-session_start();
-$db = dbConnect();
-
-$query = "SELECT ID, user_id, title, content, date_created FROM `posts` ";
-$result = $db->query($query) or die('Error inside utility.php');
-
-echo '
-        <form action="" method="post"> 
-        <table border="0" cellspacing="2" cellpadding="2">
-      <tr>
-          <td> <font face="Arial">Title of post</font> </td>
-          <td> <font face="Arial">User ID</font> </td>
-          <td> <font face="Arial">Post ID</font> </td>
-          <td> <font face="Arial">Body of Post</font> </td>
-          <td> <font face="Arial">Date post was created</font> </td>
-      </tr>';
-
-
-if ($result = $db->query($query)) {
-    while ($row = $result->fetch_assoc()) {
-        $field1name = $row["title"];
-        $field2name = $row["user_id"];
-        $field3name = $row["ID"];
-        $field4name = $row["content"];
-        $field5name = $row["date_created"];
+<?php
+function getUserList(){
+    require_once 'functions/myfuncs.php';
+    checkSessionTime();
+    $db = dbConnect();
+    $row = "";
+    
+    $query = "SELECT * FROM users";
+    $results = $db->query($query) or die("Error: Could not connect get All users");
+    
+    foreach($results as $row){
+        $ID = $row['ID'];
+        $firstName = $row['firstName'];
+        $lastName = $row['lastName'];
+        $emailAddress = $row['emailAddress'];
+        $userName = $row['userName'];
+        $user_role = $row['user_role'];
         
-        
-        echo '<tr>
-                  <td>'.$field1name.' </td>
-                  <td>'.$field2name.'</td>
-                  <td>'.$field3name.'</td>
-                  <td>'.$field4name.'</td>
-                  <td>'.$field5name.'</td>
-                  <td> <input type="submit" name="editUser"value="Edit this user"> </td>
-                  <td> <input type="submit" name="deleteUser"value="Delete this user"> </td>
-              </tr>';
+        echo '
+    <form action="" method="post" id="editform">
+<table style="border: 0px;">
+            
+ <tr>
+ <td>User ID: <input type="text" name="userID" value="'. $ID .'"  maxlength="30"></td>
+ </tr>
+ <tr>
+ <td>User ID: <input type="text" name="firstName" value="' . $firstName . '"  maxlength="30"></td>
+ </tr>
+ <tr>
+ <td>User ID: <input type="text" name="lastName" value="' . $lastName . '"  maxlength="30"></td>
+ </tr>
+ <tr>
+ <td>Email Address: <input type="text" name="emailAddress" value="' . $emailAddress . '"  maxlength="30"></td>
+ </tr>
+ <tr>
+ <td>UserName: <input type="text" name="userName" value="' . $userName . '"  maxlength="30"></td>
+ </tr>
+ <tr>
+ <td>User role: <input type="text" name="user_role" value="' . $user_role . '"  maxlength="30"></td>
+ </tr>
+  <tr>
+  <td><input type="submit" name="editUser" value="Update user"></td>
+  <td><input type="submit" name="deletePost" value="Delete user"></td>
+  </tr>
+ </table>
+</form> ';
     }
-    
-    echo '
-         </table>
-         </form>
-         ';
-    
-    $result->free();
-    $db->close();
-} 
+}
 
-if(isset($_POST['deleteUser'])){
+if(isset($_POST[deletePost])){
+    session_start();
+    $_SESSION['firstName'] = $_POST['firstName'];
     header("location: _editUsers.php");
 }
+
 ?>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" href="styles/styles.css">
+<title>Edit post</title>
+
+</head>
+<body>
+<h2>Edit user page</h2>
+<?php 
+getUserList();
+?>
+
+</body>
+</html>
