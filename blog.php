@@ -240,9 +240,24 @@ if(isset($_POST['deleteCat'])){
 } else if(isset($_POST['updateCat'])){
     echo 'update was clicked';
 } else if(isset($_POST['createCat'])){
-    echo 'create was clicked';
+    echo '
+            <form action="" method="post" id="createC">
+            <table border="0" cellspacing="2" cellpadding="2">
+            <tr>
+            <td><input type="text" name="newCat" value="Insert new Category here"  maxlength="30"></td>
+            </tr>
+            <tr>
+            <td><input type="submit" name="createNewCat" value="Create"></td>
+            </tr>
+            </table>
+            </form>
+';
 } else if(isset($_POST['cancel'])){
     header("location: blog.php");
+}
+
+if(isset($_POST['createNewCat'])){
+    echo 'ya clicked it';
 }
 
 ?>
