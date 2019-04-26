@@ -64,21 +64,7 @@ for each userName and resets this number after a succesful login -->
 	                        unset($_COOKIE['login']);
 	                        setcookie('login', '', time() - 3600, '/'); // empty value and old timestamp
 	                    }
-	                    if (!empty($_SESSION['enterTime'])) {  //Checking if user has been idle for too long
-	                        $timeDiffernce = time() - $_SESSION['enterTime'];
-	                        if ($timeDiffernce > 3600) { // exprie after one hour (3600 seconds)
-	                            // unset session
-	                            session_destroy(); //Destroy session and return user to login page
-	                            header("location: login.html");
-	                            // get login form
-	                            
-	                        } else {
-	                            // Reset to current time.
-	                            $_SESSION['enterTime'] = time();
-	                        }
-	                    } else {
-	                        $_SESSION['enterTime'] = time();
-	                    }
+	                    checkSessionTime(); //Checks if session has expired
 	                    header("location: index.php"); //Succsesful login, redirects to index.php
 	                }
 	                } else {
