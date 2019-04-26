@@ -20,6 +20,6 @@ $result->free();
 $db->close();
 }
 
-$title = getTitle();
-echo "The title is: " . $title;
+
+echo "The title is: " . getTitle();;
 ?>
